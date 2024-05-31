@@ -53,24 +53,3 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--shade-6) var(--shade-7);
 }
-
-::-webkit-scrollbar {
-  @apply w-2;
-  @apply h-2;
-}
-
-::-webkit-scrollbar-track-piece {
-  @apply bg-shade-7;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-shade-6;
-
-  &:hover {
-    @apply bg-shade-5;
-  }
-
-  &:active {
-    @apply bg-shade-4;
-  }
-}
