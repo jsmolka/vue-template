@@ -1,5 +1,4 @@
 <template>
-  <RouterView />
   <Component v-if="layout" :is="layout.component" v-bind="layout.props">
     <RouterView />
   </Component>
