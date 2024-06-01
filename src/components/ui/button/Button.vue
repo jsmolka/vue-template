@@ -48,7 +48,7 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-brand-3 text-shade-8 hover:bg-brand-2',
         secondary: 'bg-shade-6 text-shade-2 hover:bg-shade-5',
-        outline: 'bg-shade-8 text-shade-2 border border-shade-6 hover:bg-shade-7',
+        outline: 'bg-shade-8 text-shade-2 border hover:bg-shade-7',
         ghost: 'text-shade-2 hover:bg-shade-7',
       },
       size: {

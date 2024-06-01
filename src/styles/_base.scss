@@ -50,6 +50,8 @@ body {
 }
 
 * {
+  @apply border-shade-6;
+
   scrollbar-width: thin;
   scrollbar-color: var(--shade-6) var(--shade-7);
 }
