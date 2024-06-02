@@ -1,3 +1,18 @@
+<template>
+  <DropdownMenuItem
+    v-bind="forwardedProps"
+    :class="
+      cn(
+        'relative flex items-center px-2 py-1.5 text-sm rounded-sm cursor-pointer select-none outline-none transition-colors focus:bg-shade-6 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+        inset && 'pl-8',
+        props.class,
+      )
+    "
+  >
+    <slot />
+  </DropdownMenuItem>
+</template>
+
 <script setup>
 import { cn } from '@/utils/ui';
 import { DropdownMenuItem, useForwardProps } from 'radix-vue';
@@ -20,18 +35,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-
-<template>
-  <DropdownMenuItem
-    v-bind="forwardedProps"
-    :class="
-      cn(
-        'relative flex items-center px-2 py-1.5 text-sm rounded-sm cursor-pointer select-none outline-none transition-colors focus:bg-shade-7 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
-        inset && 'pl-8',
-        props.class,
-      )
-    "
-  >
-    <slot />
-  </DropdownMenuItem>
-</template>
