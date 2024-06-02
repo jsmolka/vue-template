@@ -29,40 +29,13 @@ const modelValue = defineModel({
 });
 
 const props = defineProps({
-  disabled: {
-    type: Boolean,
-    required: false,
-  },
-
-  required: {
-    type: Boolean,
-    required: false,
-  },
-
-  name: {
-    type: String,
-    required: false,
-  },
-
-  id: {
-    type: String,
-    required: false,
-  },
-
-  asChild: {
-    type: Boolean,
-    required: false,
-  },
-
-  as: {
-    type: null,
-    required: false,
-  },
-
-  class: {
-    type: null,
-    required: false,
-  },
+  disabled: { type: Boolean, required: false },
+  required: { type: Boolean, required: false },
+  name: { type: String, required: false },
+  id: { type: String, required: false },
+  asChild: { type: Boolean, required: false },
+  as: { type: null, required: false },
+  class: { type: null, required: false },
 });
 const emits = defineEmits(['update:checked']);
 
