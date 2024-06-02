@@ -1,5 +1,7 @@
 <template>
   <div class="flex flex-col gap-4 p-4 mx-auto max-w-sm">
+    <Logo class="size-8 self-center" />
+
     <h1>Button</h1>
     <div class="grid gap-2">
       <div class="grid grid-cols-2 gap-2">
@@ -62,14 +64,16 @@
         <DropdownMenuGroup>
           <DropdownMenuCheckboxItem checked>Value</DropdownMenuCheckboxItem>
           <DropdownMenuCheckboxItem>Value</DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem>Value</DropdownMenuCheckboxItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuLabel>Radio Group</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuRadioGroup :model-value="'1'">
+          <DropdownMenuRadioGroup model-value="1">
             <DropdownMenuRadioItem value="1">Value 1</DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="2">Value 2</DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="3">Value 3</DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
         </DropdownMenuGroup>
       </DropdownMenuContent>
@@ -92,10 +96,45 @@
       <Label>Length</Label>
       <InputNumber :model-value="100" unit="mm" />
     </div>
+
+    <h1>Select</h1>
+    <div class="flex gap-2">
+      <Select :items="[1, 2, 3]" placeholder="Select">
+        <template #item="{ item }">
+          <SelectItemText>Value {{ item }}</SelectItemText>
+        </template>
+      </Select>
+      <Select :items="[]" placeholder="Select" disabled />
+    </div>
+
+    <h1>Switch</h1>
+    <div class="grid gap-2">
+      <div class="flex gap-2">
+        <Switch :model-value="true" />
+        <Switch :model-value="true" disabled />
+      </div>
+      <div class="flex gap-2">
+        <Switch :model-value="false" />
+        <Switch :model-value="false" disabled />
+      </div>
+    </div>
+
+    <h1>Tooltip</h1>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger as-child>
+          <Button variant="secondary">Hover</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Content</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   </div>
 </template>
 
 <script setup>
+import Logo from '@/components/Logo.vue';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
@@ -117,6 +156,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input, InputNumber } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Select, SelectItemText } from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { DotsVerticalIcon } from '@radix-icons/vue';
 </script>
 
