@@ -20,12 +20,12 @@
 <script setup>
 import { cn } from '@/utils/ui';
 import { CheckIcon } from '@radix-icons/vue';
-import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'radix-vue';
+import { CheckboxIndicator, CheckboxRoot, useForwardProps } from 'radix-vue';
 import { computed } from 'vue';
 
 const modelValue = defineModel({
   type: Boolean,
-  required: true,
+  required: false,
 });
 
 const props = defineProps({
@@ -37,7 +37,6 @@ const props = defineProps({
   as: { type: null, required: false },
   class: { type: null, required: false },
 });
-const emits = defineEmits(['update:checked']);
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props;
@@ -45,5 +44,5 @@ const delegatedProps = computed(() => {
   return delegated;
 });
 
-const forwarded = useForwardPropsEmits(delegatedProps, emits);
+const forwarded = useForwardProps(delegatedProps);
 </script>

@@ -31,8 +31,6 @@
         <Button variant="outline">Open</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>Items</DropdownMenuLabel>
-        <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <span>Item</span>
@@ -76,6 +74,9 @@
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
+
+    <h1>Input</h1>
+    <Input placeholder="Placeholder" />
   </div>
 </template>
 
@@ -99,6 +100,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
 import { DotsVerticalIcon } from '@radix-icons/vue';
 </script>
 
