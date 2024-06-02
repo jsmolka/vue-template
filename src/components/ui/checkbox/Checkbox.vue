@@ -4,7 +4,7 @@
     v-bind="forwarded"
     :class="
       cn(
-        'size-4 shrink-0 border rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-3 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-brand-3 data-[state=checked]:text-shade-8 data-[state=checked]:border-brand-3',
+        'peer size-4 shrink-0 border rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-3 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-brand-3 data-[state=checked]:text-shade-8 data-[state=checked]:border-brand-3',
         props.class,
       )
     "
