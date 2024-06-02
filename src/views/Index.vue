@@ -119,6 +119,20 @@
       </div>
     </div>
 
+    <h1>Tabs</h1>
+    <Tabs default-value="1">
+      <TabsList class="grid grid-cols-2">
+        <TabsTrigger value="1">One</TabsTrigger>
+        <TabsTrigger value="2">Two</TabsTrigger>
+      </TabsList>
+      <TabsContent value="1">
+        <div class="border rounded-sm p-2">Content 1</div>
+      </TabsContent>
+      <TabsContent value="2">
+        <div class="border rounded-sm p-2">Content 2</div>
+      </TabsContent>
+    </Tabs>
+
     <h1>Tooltip</h1>
     <TooltipProvider>
       <Tooltip>
@@ -158,6 +172,7 @@ import { Input, InputNumber } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectItemText } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { DotsVerticalIcon } from '@radix-icons/vue';
 </script>
