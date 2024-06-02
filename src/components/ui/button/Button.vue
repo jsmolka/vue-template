@@ -42,7 +42,7 @@ const props = defineProps({
 });
 
 const buttonVariants = cva(
-  'inline-flex justify-center items-center text-sm font-medium whitespace-nowrap rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-3 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex justify-center items-center text-sm font-medium whitespace-nowrap rounded-sm select-none transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-3 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
