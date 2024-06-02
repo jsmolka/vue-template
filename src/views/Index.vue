@@ -80,7 +80,6 @@
       <Input placeholder="Input" />
       <InputNumber
         placeholder="Input number"
-        v-model="number"
         :min="-10000"
         :max="+10000"
         :precision="2"
@@ -112,12 +111,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input, InputNumber } from '@/components/ui/input';
 import { DotsVerticalIcon } from '@radix-icons/vue';
-import { ref, watch } from 'vue';
-
-const number = ref(10_000);
-watch(number, (value) => {
-  console.log('Number', value);
-});
 </script>
 
 <style scoped>

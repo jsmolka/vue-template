@@ -6,7 +6,8 @@
         props.class,
       )
     "
-    :value="format((modelValue ?? '').toLocaleString())"
+    :inputmode="inputmode"
+    :value="value"
     @input="
       $event.target.value = format($event.target.value);
       clampSelection($event);
@@ -15,9 +16,8 @@
     @focusin="select"
     @keydown="clampNavigation"
     @mouseup="clampSelection"
-    v-bind="$attrs"
-    inputmode="numeric"
     type="text"
+    v-bind="$attrs"
   />
 </template>
 
@@ -83,7 +83,7 @@ const format = (value) => {
     .replace(/-/g, '')
     // Replace M with minus
     .replace('M', '-')
-    // Strip leading zeros
+    // Strip zeros
     .replace(/^(-)?0+(?=\d)/, '$1');
 
   if (value === '') {
@@ -100,20 +100,24 @@ const format = (value) => {
   return value + suffix.value;
 };
 
-const select = ({ target }) => {
-  const value = target.value;
-  if (value.endsWith(suffix.value)) {
-    target.setSelectionRange(0, value.length - suffix.value.length);
-  } else {
-    target.select();
-  }
+const inputmode = computed(() => {
+  return props.precision > 0 ? 'decimal' : 'numeric';
+});
+
+const value = computed(() => {
+  return format((modelValue.value ?? '').toLocaleString());
+});
+
+const select = (event) => {
+  const string = unformat(event.target.value);
+  event.target.setSelectionRange(0, string.length);
 };
 
 let selectionStart = null;
 let selectionEnd = null;
 
 const clampNavigation = (event) => {
-  const content = unformat(event.target.value);
+  const string = unformat(event.target.value);
 
   selectionStart ??= event.target.selectionStart;
   selectionEnd ??= event.target.selectionEnd;
@@ -121,7 +125,7 @@ const clampNavigation = (event) => {
   switch (event.key) {
     case 'Shift':
       selectionStart = event.target.selectionStart;
-      selectionEnd = event.target.selectionStart;
+      selectionEnd = event.target.selectionEnd;
     default:
       return;
 
@@ -132,7 +136,7 @@ const clampNavigation = (event) => {
       }
     case 'ArrowUp':
     case 'Home': {
-      selectionEnd -= !event.ctrlKey && event.key === 'ArrowLeft' ? 1 : content.length;
+      selectionEnd -= !event.ctrlKey && event.key === 'ArrowLeft' ? 1 : string.length;
       break;
     }
 
@@ -143,12 +147,12 @@ const clampNavigation = (event) => {
       }
     case 'ArrowDown':
     case 'End': {
-      selectionEnd += !event.ctrlKey && event.key === 'ArrowRight' ? 1 : content.length;
+      selectionEnd += !event.ctrlKey && event.key === 'ArrowRight' ? 1 : string.length;
       break;
     }
   }
 
-  selectionEnd = _.clamp(selectionEnd, 0, content.length);
+  selectionEnd = _.clamp(selectionEnd, 0, string.length);
   if (!event.shiftKey) {
     selectionStart = selectionEnd;
   }
@@ -165,21 +169,20 @@ const clampNavigation = (event) => {
   );
 };
 
-const clampSelection = ({ target }) => {
-  const content = unformat(target.value);
-  target.selectionEnd = Math.min(target.selectionEnd, content.length);
+const clampSelection = (event) => {
+  const string = unformat(event.target.value);
+  event.target.selectionEnd = Math.min(event.target.selectionEnd, string.length);
 
-  selectionStart = target.selectionStart;
-  selectionEnd = target.selectionEnd;
+  selectionStart = event.target.selectionStart;
+  selectionEnd = event.target.selectionEnd;
 };
 
 const forceUpdate = useForceUpdate();
 
 const change = async (event) => {
-  let number = parseFloat(unformat(event.target.value)) || 0;
-  number = Math.max(number, props.min);
-  number = Math.min(number, props.max);
-  modelValue.value = number;
+  const string = unformat(event.target.value);
+  const number = parseFloat(string) || 0;
+  modelValue.value = _.clamp(number, props.min, props.max);
 
   await nextTick();
   forceUpdate();
