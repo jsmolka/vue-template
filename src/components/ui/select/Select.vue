@@ -28,7 +28,8 @@ import SelectTrigger from './SelectTrigger.vue';
 import SelectValue from './SelectValue.vue';
 
 const modelValue = defineModel({
-  default: null,
+  type: null,
+  required: false,
 });
 
 const props = defineProps({
