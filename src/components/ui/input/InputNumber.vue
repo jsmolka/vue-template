@@ -24,6 +24,7 @@
 <script setup>
 import { useForceUpdate } from '@/composables/useForceUpdate';
 import { cn } from '@/utils/ui';
+import _ from 'lodash';
 import { computed, nextTick } from 'vue';
 
 const modelValue = defineModel({
@@ -108,122 +109,68 @@ const select = ({ target }) => {
   }
 };
 
+let selectionStart = null;
+let selectionEnd = null;
+
 const clampNavigation = (event) => {
-  const content = event.target.value.length - suffix.value.length;
+  const content = unformat(event.target.value);
+
+  selectionStart ??= event.target.selectionStart;
+  selectionEnd ??= event.target.selectionEnd;
 
   switch (event.key) {
-    case 'ArrowLeft':
-    case 'ArrowUp':
-    case 'Home':
-    case 'ArrowRight':
-    case 'ArrowDown':
-    case 'End':
-      break;
-
+    case 'Shift':
+      selectionStart = event.target.selectionStart;
+      selectionEnd = event.target.selectionStart;
     default:
       return;
-  }
 
-  let step = 0;
-  switch (event.key) {
     case 'ArrowLeft':
-    case 'ArrowRight':
-      step = event.ctrlKey ? content : 1;
-      break;
-
-    case 'ArrowUp':
-    case 'Home':
-    case 'ArrowDown':
-    case 'End':
-      step = content;
-      break;
-  }
-
-  let s = event.target.selectionStart;
-  let e = event.target.selectionEnd;
-  let d = event.target.selectionDirection;
-
-  switch (event.key) {
-    case 'ArrowLeft':
+      if (!event.shiftKey && selectionStart !== selectionEnd) {
+        selectionEnd = Math.min(selectionStart, selectionEnd);
+        break;
+      }
     case 'ArrowUp':
     case 'Home': {
-      if (event.shiftKey) {
-        if (e > s && d === 'forward') {
-          e = Math.max(e - step, 0);
-          if (e < s) {
-            [s, e] = [e, s];
-            d = 'backward';
-          } else {
-            d = 'forward';
-          }
-        } else {
-          s = Math.max(s - step, 0);
-          d = 'backward';
-        }
-      } else {
-        s = Math.max(s - step, 0);
-        e = s;
-        d = 'none';
-      }
+      selectionEnd -= !event.ctrlKey && event.key === 'ArrowLeft' ? 1 : content.length;
       break;
     }
 
     case 'ArrowRight':
+      if (!event.shiftKey && selectionStart !== selectionEnd) {
+        selectionEnd = Math.max(selectionStart, selectionEnd);
+        break;
+      }
     case 'ArrowDown':
     case 'End': {
-      if (event.shiftKey) {
-        if (e > s && d === 'backward') {
-          console.log(s, e, d);
-          s = Math.min(s + step, content);
-          if (s > e) {
-            [s, e] = [e, s];
-            d = 'forward';
-          } else {
-            d = 'backward';
-          }
-        } else {
-          e = Math.min(e + step, content);
-          d = 'forward';
-        }
-      } else {
-        s = Math.min(s + step, content);
-        e = s;
-        d = 'none';
-      }
+      selectionEnd += !event.ctrlKey && event.key === 'ArrowRight' ? 1 : content.length;
       break;
     }
+  }
+
+  selectionEnd = _.clamp(selectionEnd, 0, content.length);
+  if (!event.shiftKey) {
+    selectionStart = selectionEnd;
   }
 
   event.preventDefault();
-  event.target.setSelectionRange(s, e, d);
-
-  // switch (event.key) {
-  //   case 'ArrowLeft':
-  //   case 'ArrowUp':
-  //   case 'Home': {
-  //     event.preventDefault();
-  //     const step = event.key === 'ArrowLeft' && !event.ctrlKey ? 1 : selectionMax;
-  //     const prop = event.shiftKey ? 'selectionStart' : 'selectionEnd';
-  //     event.target[prop] = Math.max(event.target[prop] - step, 0);
-  //     break;
-  //   }
-
-  //   case 'ArrowRight':
-  //   case 'ArrowDown':
-  //   case 'End': {
-  //     event.preventDefault();
-  //     const step = event.key === 'ArrowRight' && !event.ctrlKey ? 1 : selectionMax;
-  //     const prop = event.shiftKey ? 'selectionEnd' : 'selectionStart';
-  //     event.target[prop] = Math.min(event.target[prop] + step, selectionMax);
-  //     break;
-  //   }
-  // }
+  event.target.setSelectionRange(
+    Math.min(selectionStart, selectionEnd),
+    Math.max(selectionStart, selectionEnd),
+    selectionStart !== selectionEnd
+      ? selectionStart <= selectionEnd
+        ? 'forward'
+        : 'backward'
+      : 'none',
+  );
 };
 
 const clampSelection = ({ target }) => {
-  const selectionMax = target.value.length - suffix.value.length;
-  target.selectionStart = Math.min(target.selectionStart, selectionMax);
-  target.selectionEnd = Math.min(target.selectionEnd, selectionMax);
+  const content = unformat(target.value);
+  target.selectionEnd = Math.min(target.selectionEnd, content.length);
+
+  selectionStart = target.selectionStart;
+  selectionEnd = target.selectionEnd;
 };
 
 const forceUpdate = useForceUpdate();
