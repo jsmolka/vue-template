@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-4 p-4 mx-auto max-w-sm">
     <h1>Button</h1>
-    <div class="flex flex-col gap-2">
+    <div class="grid gap-2">
       <div class="grid grid-cols-2 gap-2">
         <template v-for="variant in ['default', 'secondary', 'outline', 'ghost']">
           <Button v-for="disabled in [false, true]" :variant="variant" :disabled="disabled">
@@ -19,7 +19,7 @@
     </div>
 
     <h1>Checkbox</h1>
-    <div class="flex flex-wrap gap-2">
+    <div class="flex gap-2">
       <Checkbox :model-value="false" />
       <Checkbox :model-value="true" />
       <Checkbox :model-value="true" disabled />
@@ -86,6 +86,12 @@
         :unit="'m'"
       />
     </div>
+
+    <h1>Label</h1>
+    <div class="grid gap-2">
+      <Label>Length</Label>
+      <InputNumber :model-value="100" unit="mm" />
+    </div>
   </div>
 </template>
 
@@ -110,6 +116,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input, InputNumber } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { DotsVerticalIcon } from '@radix-icons/vue';
 </script>
 
