@@ -28,26 +28,12 @@ import SelectTrigger from './SelectTrigger.vue';
 import SelectValue from './SelectValue.vue';
 
 const modelValue = defineModel({
-  type: null,
   required: false,
 });
 
 const props = defineProps({
-  items: {
-    type: Array,
-    required: true,
-  },
-
-  placeholder: {
-    type: String,
-    default: '',
-  },
-
-  class: {
-    type: [String, Array, Object],
-    default: null,
-  },
-
+  items: { type: Array, default: [] },
+  placeholder: { type: String, required: false },
   open: { type: Boolean, required: false },
   defaultOpen: { type: Boolean, required: false },
   defaultValue: { type: String, required: false },
@@ -56,6 +42,7 @@ const props = defineProps({
   autocomplete: { type: String, required: false },
   disabled: { type: Boolean, required: false },
   required: { type: Boolean, required: false },
+  class: { type: [String, Array, Object], required: false },
 });
 const emits = defineEmits(['update:open']);
 
