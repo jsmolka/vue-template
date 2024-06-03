@@ -20,8 +20,8 @@ import { computed } from 'vue';
 const props = defineProps({
   loop: { type: Boolean, required: false },
   asChild: { type: Boolean, required: false },
-  as: { type: null, required: false },
-  class: { type: null, required: false },
+  as: { required: false },
+  class: { required: false },
 });
 
 const delegatedProps = computed(() => {

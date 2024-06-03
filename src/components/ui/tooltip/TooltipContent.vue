@@ -26,18 +26,18 @@ defineOptions({
 const props = defineProps({
   ariaLabel: { type: String, required: false },
   asChild: { type: Boolean, required: false },
-  as: { type: null, required: false },
-  side: { type: null, required: false },
+  as: { required: false },
+  side: { required: false },
   sideOffset: { type: Number, required: false, default: 4 },
-  align: { type: null, required: false },
+  align: { required: false },
   alignOffset: { type: Number, required: false },
   avoidCollisions: { type: Boolean, required: false },
-  collisionBoundary: { type: null, required: false },
+  collisionBoundary: { required: false },
   collisionPadding: { type: [Number, Object], required: false },
   arrowPadding: { type: Number, required: false },
   sticky: { type: String, required: false },
   hideWhenDetached: { type: Boolean, required: false },
-  class: { type: null, required: false },
+  class: { required: false },
 });
 
 const emits = defineEmits(['escapeKeyDown', 'pointerDownOutside']);

@@ -8,6 +8,6 @@
 import { cn } from '@/utils/ui';
 
 const props = defineProps({
-  class: { type: null, required: false },
+  class: { required: false },
 });
 </script>

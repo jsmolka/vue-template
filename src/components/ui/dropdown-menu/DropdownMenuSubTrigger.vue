@@ -23,8 +23,8 @@ const props = defineProps({
   disabled: { type: Boolean, required: false },
   textValue: { type: String, required: false },
   asChild: { type: Boolean, required: false },
-  as: { type: null, required: false },
-  class: { type: null, required: false },
+  as: { required: false },
+  class: { required: false },
 });
 
 const delegatedProps = computed(() => {

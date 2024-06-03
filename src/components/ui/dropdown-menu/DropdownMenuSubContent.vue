@@ -23,7 +23,7 @@ const props = defineProps({
   sideOffset: { type: Number, required: false },
   alignOffset: { type: Number, required: false },
   avoidCollisions: { type: Boolean, required: false },
-  collisionBoundary: { type: null, required: false },
+  collisionBoundary: { required: false },
   collisionPadding: { type: [Number, Object], required: false },
   arrowPadding: { type: Number, required: false },
   sticky: { type: String, required: false },
@@ -31,8 +31,8 @@ const props = defineProps({
   updatePositionStrategy: { type: String, required: false },
   prioritizePosition: { type: Boolean, required: false },
   asChild: { type: Boolean, required: false },
-  as: { type: null, required: false },
-  class: { type: null, required: false },
+  as: { required: false },
+  class: { required: false },
 });
 const emits = defineEmits([
   'escapeKeyDown',
