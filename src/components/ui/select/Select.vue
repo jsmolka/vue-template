@@ -1,5 +1,5 @@
 <template>
-  <SelectRoot v-model="selectModelValue" v-bind="forwarded">
+  <SelectRoot v-model="selectModelValue" v-bind="$attrs">
     <SelectTrigger :class="props.class">
       <SelectValue
         :class="{ 'text-shade-3': selectModelValue == null }"
@@ -19,11 +19,11 @@
 </template>
 
 <script setup>
-import { SelectRoot, useForwardPropsEmits } from 'radix-vue';
 import { computed } from 'vue';
 import SelectContent from './SelectContent.vue';
 import SelectItem from './SelectItem.vue';
 import SelectItemText from './SelectItemText.vue';
+import SelectRoot from './SelectRoot.vue';
 import SelectTrigger from './SelectTrigger.vue';
 import SelectValue from './SelectValue.vue';
 
@@ -34,25 +34,8 @@ const modelValue = defineModel({
 const props = defineProps({
   items: { type: Array, default: [] },
   placeholder: { type: String, required: false },
-  open: { type: Boolean, required: false },
-  defaultOpen: { type: Boolean, required: false },
-  defaultValue: { type: String, required: false },
-  dir: { type: String, required: false },
-  name: { type: String, required: false },
-  autocomplete: { type: String, required: false },
-  disabled: { type: Boolean, required: false },
-  required: { type: Boolean, required: false },
   class: { type: [String, Array, Object], required: false },
 });
-const emits = defineEmits(['update:open']);
-
-const delegatedProps = computed(() => {
-  const { modelValue: _1, class: _2, ...delegated } = props;
-
-  return delegated;
-});
-
-const forwarded = useForwardPropsEmits(delegatedProps, emits);
 
 const modelIndex = computed(() => {
   return props.items.indexOf(modelValue.value);
