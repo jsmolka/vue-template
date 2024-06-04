@@ -7,7 +7,7 @@ export const router = createRouter({
   routes: [
     {
       path: '/',
-      meta: { layout: { component: AppLayout } },
+      meta: { layout: AppLayout },
       component: () => import('@/views/Index.vue'),
     },
     {

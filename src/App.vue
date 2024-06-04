@@ -1,11 +1,10 @@
 <template>
-  <Component v-if="layout" :is="layout.component" v-bind="layout.props">
-    <RouterView />
-  </Component>
+  <Layout v-if="layout" :layout="layout" />
   <RouterView v-else />
 </template>
 
 <script setup>
+import Layout from '@/layouts/Layout.vue';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
