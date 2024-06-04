@@ -1,5 +1,6 @@
 <template>
   <DropdownMenuCheckboxItem
+    v-model:checked="modelValue"
     v-bind="forwarded"
     :class="
       cn(
@@ -27,15 +28,16 @@ import {
 } from 'radix-vue';
 import { computed } from 'vue';
 
+const modelValue = defineModel({ type: Boolean, required: false });
+
 const props = defineProps({
-  checked: { type: [Boolean, String], required: false },
   disabled: { type: Boolean, required: false },
   textValue: { type: String, required: false },
   asChild: { type: Boolean, required: false },
   as: { required: false },
   class: { required: false },
 });
-const emits = defineEmits(['select', 'update:checked']);
+const emits = defineEmits(['select']);
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props;

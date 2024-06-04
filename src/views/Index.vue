@@ -69,7 +69,7 @@
           <DropdownMenuLabel>Checkbox</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuCheckboxItem checked>Value</DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem model-value>Value</DropdownMenuCheckboxItem>
             <DropdownMenuCheckboxItem>Value</DropdownMenuCheckboxItem>
             <DropdownMenuCheckboxItem disabled>Value</DropdownMenuCheckboxItem>
           </DropdownMenuGroup>
