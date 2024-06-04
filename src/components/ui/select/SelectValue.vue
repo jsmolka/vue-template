@@ -8,8 +8,8 @@
 import { SelectValue } from 'radix-vue';
 
 const props = defineProps({
-  placeholder: { type: String, required: false },
-  asChild: { type: Boolean, required: false },
   as: { required: false },
+  asChild: { type: Boolean, required: false },
+  placeholder: { type: String, required: false },
 });
 </script>

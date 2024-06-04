@@ -3,7 +3,7 @@
     v-bind="forwardedProps"
     :class="
       cn(
-        'inline-flex justify-center items-center h-8 px-4 py-2 text-sm font-medium rounded-sm whitespace-nowrap transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-3 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-shade-6 data-[state=active]:text-shade-2',
+        'inline-flex justify-center items-center h-8 px-4 py-2 text-sm font-medium whitespace-nowrap rounded-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-3 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-shade-6 data-[state=active]:text-shade-2',
         props.class,
       )
     "
@@ -18,11 +18,11 @@ import { TabsTrigger, useForwardProps } from 'radix-vue';
 import { computed } from 'vue';
 
 const props = defineProps({
-  value: { type: [String, Number], required: true },
-  disabled: { type: Boolean, required: false },
-  asChild: { type: Boolean, required: false },
   as: { required: false },
+  asChild: { type: Boolean, required: false },
   class: { required: false },
+  disabled: { type: Boolean, required: false },
+  value: { type: [String, Number], required: true },
 });
 
 const delegatedProps = computed(() => {

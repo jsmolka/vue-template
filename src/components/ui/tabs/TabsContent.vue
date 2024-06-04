@@ -18,11 +18,11 @@ import { TabsContent } from 'radix-vue';
 import { computed } from 'vue';
 
 const props = defineProps({
-  value: { type: [String, Number], required: true },
-  forceMount: { type: Boolean, required: false },
-  asChild: { type: Boolean, required: false },
   as: { required: false },
+  asChild: { type: Boolean, required: false },
   class: { required: false },
+  forceMount: { type: Boolean, required: false },
+  value: { type: [String, Number], required: true },
 });
 
 const delegatedProps = computed(() => {

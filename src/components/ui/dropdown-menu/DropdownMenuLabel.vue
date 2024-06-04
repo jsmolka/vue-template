@@ -13,8 +13,8 @@ import { DropdownMenuLabel, useForwardProps } from 'radix-vue';
 import { computed } from 'vue';
 
 const props = defineProps({
-  asChild: { type: Boolean, required: false },
   as: { required: false },
+  asChild: { type: Boolean, required: false },
   class: { required: false },
   inset: { type: Boolean, required: false },
 });

@@ -18,10 +18,10 @@ import { Label } from 'radix-vue';
 import { computed } from 'vue';
 
 const props = defineProps({
-  for: { type: String, required: false },
-  asChild: { type: Boolean, required: false },
   as: { required: false },
+  asChild: { type: Boolean, required: false },
   class: { required: false },
+  for: { type: String, required: false },
 });
 
 const delegatedProps = computed(() => {

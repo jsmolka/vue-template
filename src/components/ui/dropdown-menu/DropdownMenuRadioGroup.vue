@@ -8,9 +8,9 @@
 import { DropdownMenuRadioGroup, useForwardPropsEmits } from 'radix-vue';
 
 const props = defineProps({
-  modelValue: { type: String, required: false },
-  asChild: { type: Boolean, required: false },
   as: { required: false },
+  asChild: { type: Boolean, required: false },
+  modelValue: { type: String, required: false },
 });
 const emits = defineEmits(['update:modelValue']);
 

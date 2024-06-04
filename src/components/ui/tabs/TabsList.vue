@@ -18,10 +18,10 @@ import { TabsList } from 'radix-vue';
 import { computed } from 'vue';
 
 const props = defineProps({
-  loop: { type: Boolean, required: false },
-  asChild: { type: Boolean, required: false },
   as: { required: false },
+  asChild: { type: Boolean, required: false },
   class: { required: false },
+  loop: { type: Boolean, required: false },
 });
 
 const delegatedProps = computed(() => {

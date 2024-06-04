@@ -9,7 +9,7 @@
       )
     "
   >
-    <CheckboxIndicator class="w-full h-full flex justify-center items-center text-current">
+    <CheckboxIndicator class="flex justify-center items-center size-full text-current">
       <slot>
         <CheckIcon class="size-4" />
       </slot>
@@ -23,19 +23,16 @@ import { CheckIcon } from '@radix-icons/vue';
 import { CheckboxIndicator, CheckboxRoot, useForwardProps } from 'radix-vue';
 import { computed } from 'vue';
 
-const modelValue = defineModel({
-  type: Boolean,
-  required: false,
-});
+const modelValue = defineModel({ type: Boolean, required: false });
 
 const props = defineProps({
-  disabled: { type: Boolean, required: false },
-  required: { type: Boolean, required: false },
-  name: { type: String, required: false },
-  id: { type: String, required: false },
-  asChild: { type: Boolean, required: false },
   as: { required: false },
+  asChild: { type: Boolean, required: false },
   class: { required: false },
+  disabled: { type: Boolean, required: false },
+  id: { type: String, required: false },
+  name: { type: String, required: false },
+  required: { type: Boolean, required: false },
 });
 
 const delegatedProps = computed(() => {

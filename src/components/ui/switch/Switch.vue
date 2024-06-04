@@ -24,21 +24,18 @@ import { cn } from '@/utils/ui';
 import { SwitchRoot, SwitchThumb, useForwardPropsEmits } from 'radix-vue';
 import { computed } from 'vue';
 
-const modelValue = defineModel({
-  type: Boolean,
-  required: false,
-});
+const modelValue = defineModel({ type: Boolean, required: false });
 
 const props = defineProps({
+  as: { required: false },
+  asChild: { type: Boolean, required: false },
+  class: { required: false },
   defaultChecked: { type: Boolean, required: false },
   disabled: { type: Boolean, required: false },
-  required: { type: Boolean, required: false },
-  name: { type: String, required: false },
   id: { type: String, required: false },
+  name: { type: String, required: false },
+  required: { type: Boolean, required: false },
   value: { type: String, required: false },
-  asChild: { type: Boolean, required: false },
-  as: { required: false },
-  class: { required: false },
 });
 
 const emits = defineEmits(['update:checked']);

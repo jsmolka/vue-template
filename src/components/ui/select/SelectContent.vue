@@ -26,24 +26,24 @@ defineOptions({
 });
 
 const props = defineProps({
-  forceMount: { type: Boolean, required: false },
-  position: { type: String, required: false, default: 'popper' },
-  bodyLock: { type: Boolean, required: false },
-  side: { required: false },
-  sideOffset: { type: Number, required: false },
   align: { required: false },
   alignOffset: { type: Number, required: false },
+  arrowPadding: { type: Number, required: false },
+  as: { required: false },
+  asChild: { type: Boolean, required: false },
   avoidCollisions: { type: Boolean, required: false },
+  bodyLock: { type: Boolean, required: false },
+  class: { required: false },
   collisionBoundary: { required: false },
   collisionPadding: { type: [Number, Object], required: false },
-  arrowPadding: { type: Number, required: false },
-  sticky: { type: String, required: false },
+  forceMount: { type: Boolean, required: false },
   hideWhenDetached: { type: Boolean, required: false },
-  updatePositionStrategy: { type: String, required: false },
+  position: { type: String, required: false, default: 'popper' },
   prioritizePosition: { type: Boolean, required: false },
-  asChild: { type: Boolean, required: false },
-  as: { required: false },
-  class: { required: false },
+  side: { required: false },
+  sideOffset: { type: Number, required: false },
+  sticky: { type: String, required: false },
+  updatePositionStrategy: { type: String, required: false },
 });
 const emits = defineEmits(['closeAutoFocus', 'escapeKeyDown', 'pointerDownOutside']);
 

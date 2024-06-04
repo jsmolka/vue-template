@@ -20,23 +20,23 @@ import { DropdownMenuContent, DropdownMenuPortal, useForwardPropsEmits } from 'r
 import { computed } from 'vue';
 
 const props = defineProps({
-  forceMount: { type: Boolean, required: false },
-  loop: { type: Boolean, required: false },
-  side: { required: false },
-  sideOffset: { type: Number, required: false, default: 4 },
   align: { required: false },
   alignOffset: { type: Number, required: false },
+  arrowPadding: { type: Number, required: false },
+  as: { required: false },
+  asChild: { type: Boolean, required: false },
   avoidCollisions: { type: Boolean, required: false },
+  class: { required: false },
   collisionBoundary: { required: false },
   collisionPadding: { type: [Number, Object], required: false },
-  arrowPadding: { type: Number, required: false },
-  sticky: { type: String, required: false },
+  forceMount: { type: Boolean, required: false },
   hideWhenDetached: { type: Boolean, required: false },
-  updatePositionStrategy: { type: String, required: false },
+  loop: { type: Boolean, required: false },
   prioritizePosition: { type: Boolean, required: false },
-  asChild: { type: Boolean, required: false },
-  as: { required: false },
-  class: { required: false },
+  side: { required: false },
+  sideOffset: { type: Number, required: false, default: 4 },
+  sticky: { type: String, required: false },
+  updatePositionStrategy: { type: String, required: false },
 });
 const emits = defineEmits([
   'escapeKeyDown',

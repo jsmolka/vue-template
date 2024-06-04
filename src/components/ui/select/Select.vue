@@ -27,14 +27,12 @@ import SelectRoot from './SelectRoot.vue';
 import SelectTrigger from './SelectTrigger.vue';
 import SelectValue from './SelectValue.vue';
 
-const modelValue = defineModel({
-  required: false,
-});
+const modelValue = defineModel({ required: false });
 
 const props = defineProps({
+  class: { required: false },
   items: { type: Array, default: [] },
   placeholder: { type: String, required: false },
-  class: { type: [String, Array, Object], required: false },
 });
 
 const modelIndex = computed(() => {

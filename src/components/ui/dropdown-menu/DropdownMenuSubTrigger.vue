@@ -3,7 +3,7 @@
     v-bind="forwardedProps"
     :class="
       cn(
-        'flex items-center px-2 py-1.5 rounded-sm text-sm cursor-pointer select-none outline-none focus:bg-shade-6 data-[state=open]:bg-shade-6',
+        'flex items-center px-2 py-1.5 text-sm rounded-sm outline-none cursor-pointer select-none focus:bg-shade-6 data-[state=open]:bg-shade-6',
         props.class,
       )
     "
@@ -20,11 +20,11 @@ import { DropdownMenuSubTrigger, useForwardProps } from 'radix-vue';
 import { computed } from 'vue';
 
 const props = defineProps({
+  as: { required: false },
+  asChild: { type: Boolean, required: false },
+  class: { required: false },
   disabled: { type: Boolean, required: false },
   textValue: { type: String, required: false },
-  asChild: { type: Boolean, required: false },
-  as: { required: false },
-  class: { required: false },
 });
 
 const delegatedProps = computed(() => {

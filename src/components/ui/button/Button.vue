@@ -14,11 +14,11 @@ import { cva } from 'class-variance-authority';
 import { Primitive } from 'radix-vue';
 
 const props = defineProps({
-  variant: { required: false },
-  size: { required: false },
   as: { required: false, default: 'button' },
   asChild: { type: Boolean, required: false },
   class: { required: false },
+  size: { required: false },
+  variant: { required: false },
 });
 
 const buttonVariants = cva(

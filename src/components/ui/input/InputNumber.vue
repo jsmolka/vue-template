@@ -27,31 +27,13 @@ import { cn } from '@/utils/ui';
 import _ from 'lodash';
 import { computed, nextTick } from 'vue';
 
-const modelValue = defineModel({
-  type: Number,
-  required: false,
-});
+const modelValue = defineModel({ type: Number, required: false });
 
 const props = defineProps({
-  min: {
-    type: Number,
-    default: Number.MIN_SAFE_INTEGER,
-  },
-
-  max: {
-    type: Number,
-    default: Number.MAX_SAFE_INTEGER,
-  },
-
-  precision: {
-    type: Number,
-    default: 0,
-  },
-
-  unit: {
-    type: String,
-    default: '',
-  },
+  max: { type: Number, default: Number.MAX_SAFE_INTEGER },
+  min: { type: Number, default: Number.MIN_SAFE_INTEGER },
+  precision: { type: Number, default: 0 },
+  unit: { type: String, default: '' },
 });
 
 const suffix = computed(() => {

@@ -3,7 +3,7 @@
     v-bind="forwardedProps"
     :class="
       cn(
-        'flex justify-between items-center w-full h-8 px-2 py-1 bg-shade-7 border rounded-sm text-sm whitespace-nowrap ring-offset-background placeholder:text-shade-3 focus:outline-none focus:ring-2 focus:ring-brand-3 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+        'flex justify-between items-center w-full h-8 px-2 py-1 bg-shade-7 text-sm whitespace-nowrap border rounded-sm ring-offset-background placeholder:text-shade-3 focus:outline-none focus:ring-2 focus:ring-brand-3 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
         props.class,
       )
     "
@@ -22,10 +22,10 @@ import { SelectIcon, SelectTrigger, useForwardProps } from 'radix-vue';
 import { computed } from 'vue';
 
 const props = defineProps({
-  disabled: { type: Boolean, required: false },
-  asChild: { type: Boolean, required: false },
   as: { required: false },
+  asChild: { type: Boolean, required: false },
   class: { required: false },
+  disabled: { type: Boolean, required: false },
 });
 
 const delegatedProps = computed(() => {

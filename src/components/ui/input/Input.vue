@@ -15,13 +15,10 @@
 <script setup>
 import { cn } from '@/utils/ui';
 
-const modelValue = defineModel({
-  type: String,
-  required: false,
-});
+const modelValue = defineModel({ type: String, required: false });
 
 const props = defineProps({
-  defaultValue: { type: [String, Number], required: false },
   class: { required: false },
+  defaultValue: { type: [String, Number], required: false },
 });
 </script>

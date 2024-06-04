@@ -31,11 +31,11 @@ import { computed } from 'vue';
 const modelValue = defineModel({ type: Boolean, required: false });
 
 const props = defineProps({
+  as: { required: false },
+  asChild: { type: Boolean, required: false },
+  class: { required: false },
   disabled: { type: Boolean, required: false },
   textValue: { type: String, required: false },
-  asChild: { type: Boolean, required: false },
-  as: { required: false },
-  class: { required: false },
 });
 const emits = defineEmits(['select']);
 
