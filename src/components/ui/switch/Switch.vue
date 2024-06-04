@@ -21,7 +21,7 @@
 
 <script setup>
 import { cn } from '@/utils/ui';
-import { SwitchRoot, SwitchThumb, useForwardPropsEmits } from 'radix-vue';
+import { SwitchRoot, SwitchThumb, useForwardProps } from 'radix-vue';
 import { computed } from 'vue';
 
 const modelValue = defineModel({ type: Boolean, required: false });
@@ -38,13 +38,11 @@ const props = defineProps({
   value: { type: String, required: false },
 });
 
-const emits = defineEmits(['update:checked']);
-
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props;
 
   return delegated;
 });
 
-const forwarded = useForwardPropsEmits(delegatedProps, emits);
+const forwarded = useForwardProps(delegatedProps);
 </script>
