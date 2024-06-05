@@ -1,21 +1,20 @@
 <template>
   <DialogPortal>
     <DialogOverlay
-      class="fixed inset-0 z-50 bg-black/75 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
-    />
-    <DialogContent
-      v-bind="forwarded"
-      :class="
-        cn(
-          'fixed top-1/2 left-1/2 z-50 w-full max-w-md p-4 -translate-x-1/2 -translate-y-1/2 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-1/2 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-1/2',
-          props.class,
-        )
-      "
+      class="fixed inset-0 z-50 flex justify-center items-center p-4 bg-black/75 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
     >
-      <div class="grid gap-4 p-4 bg-shade-8 border rounded-sm shadow">
+      <DialogContent
+        v-bind="forwarded"
+        :class="
+          cn(
+            'grid max-w-md gap-4 p-4 bg-shade-8 border rounded-sm shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
+            props.class,
+          )
+        "
+      >
         <slot />
-      </div>
-    </DialogContent>
+      </DialogContent>
+    </DialogOverlay>
   </DialogPortal>
 </template>
 

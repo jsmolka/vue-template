@@ -15,7 +15,7 @@
           <DialogDescription>Description</DialogDescription>
         </DialogHeader>
       </VisuallyHidden>
-      <p>{{ state.message }}</p>
+      <p class="max-w-max">{{ state.message }}</p>
       <DialogFooter v-if="state.buttons.length > 0">
         <Button v-for="(button, index) in state.buttons" @click="close(index)" v-bind="button">
           {{ button.text }}
