@@ -35,22 +35,35 @@
 
     <div class="grid gap-2">
       <h1>Dialog</h1>
-      <Dialog>
-        <DialogTrigger as-child>
-          <Button variant="secondary">Open</Button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Dialog</DialogTitle>
-            <DialogDescription>{{ description }}</DialogDescription>
-          </DialogHeader>
-          <p>{{ description }}</p>
-          <DialogFooter>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="default">Default</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      <div class="grid grid-cols-2 gap-2">
+        <Dialog>
+          <DialogTrigger as-child>
+            <Button variant="secondary">Open</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Dialog</DialogTitle>
+              <DialogDescription>{{ description }}</DialogDescription>
+            </DialogHeader>
+            <p>{{ description }}</p>
+            <DialogFooter>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="default">Default</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+        <Button
+          variant="secondary"
+          @click="
+            dialog(description, [
+              { text: 'Secondary', variant: 'secondary' },
+              { text: 'Default', variant: 'default' },
+            ])
+          "
+        >
+          Open
+        </Button>
+      </div>
     </div>
 
     <div class="grid gap-2">
@@ -268,6 +281,7 @@ import {
 import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { dialog } from '@/utils/dialog';
 import { toast } from '@/utils/toast';
 import { CookieIcon, DotsVerticalIcon } from '@radix-icons/vue';
 
