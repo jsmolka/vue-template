@@ -10,12 +10,12 @@
     :value="value"
     @input="
       $event.target.value = format($event.target.value);
-      clampSelection($event);
+      clampCursor($event);
     "
     @change="change"
     @focusin="select"
-    @keydown="clampNavigation"
-    @mouseup="clampSelection"
+    @keydown="keyDown"
+    @mouseup="clampCursor"
     type="text"
     v-bind="$attrs"
   />
@@ -90,33 +90,44 @@ let selectionStart = null;
 let selectionEnd = null;
 
 const select = (event) => {
-  const string = unformat(event.target.value);
+  const value = unformat(event.target.value);
 
   selectionStart = 0;
-  selectionEnd = string.length;
+  selectionEnd = value.length;
 
   event.target.setSelectionRange(selectionStart, selectionEnd);
 };
 
-const clampNavigation = (event) => {
-  if (event.ctrlKey && event.code === 'KeyA') {
-    event.preventDefault();
-    select(event);
-    return;
-  }
-
-  const string = unformat(event.target.value);
-
-  selectionStart ??= event.target.selectionStart;
-  selectionEnd ??= event.target.selectionEnd;
-
+const keyDown = (event) => {
   switch (event.key) {
+    case 'a':
+    case 'A':
+      if (event.ctrlKey) {
+        event.preventDefault();
+        select(event);
+      }
+      break;
+
     case 'Shift':
       selectionStart = event.target.selectionStart;
       selectionEnd = event.target.selectionEnd;
-    default:
-      return;
+      break;
 
+    case 'ArrowLeft':
+    case 'ArrowUp':
+    case 'Home':
+    case 'ArrowRight':
+    case 'ArrowDown':
+    case 'End':
+      navigate(event);
+      break;
+  }
+};
+
+const navigate = (event) => {
+  const value = unformat(event.target.value);
+
+  switch (event.key) {
     case 'ArrowLeft':
       if (!event.shiftKey && selectionStart !== selectionEnd) {
         selectionEnd = Math.min(selectionStart, selectionEnd);
@@ -124,7 +135,7 @@ const clampNavigation = (event) => {
       }
     case 'ArrowUp':
     case 'Home': {
-      selectionEnd -= !event.ctrlKey && event.key === 'ArrowLeft' ? 1 : string.length;
+      selectionEnd -= !event.ctrlKey && event.key === 'ArrowLeft' ? 1 : value.length;
       break;
     }
 
@@ -135,12 +146,12 @@ const clampNavigation = (event) => {
       }
     case 'ArrowDown':
     case 'End': {
-      selectionEnd += !event.ctrlKey && event.key === 'ArrowRight' ? 1 : string.length;
+      selectionEnd += !event.ctrlKey && event.key === 'ArrowRight' ? 1 : value.length;
       break;
     }
   }
 
-  selectionEnd = _.clamp(selectionEnd, 0, string.length);
+  selectionEnd = _.clamp(selectionEnd, 0, value.length);
   if (!event.shiftKey) {
     selectionStart = selectionEnd;
   }
@@ -157,9 +168,9 @@ const clampNavigation = (event) => {
   );
 };
 
-const clampSelection = (event) => {
-  const string = unformat(event.target.value);
-  event.target.selectionEnd = Math.min(event.target.selectionEnd, string.length);
+const clampCursor = (event) => {
+  const value = unformat(event.target.value);
+  event.target.selectionEnd = Math.min(event.target.selectionEnd, value.length);
 
   selectionStart = event.target.selectionStart;
   selectionEnd = event.target.selectionEnd;
@@ -168,13 +179,12 @@ const clampSelection = (event) => {
 const forceUpdate = useForceUpdate();
 
 const change = async (event) => {
-  const string = unformat(event.target.value);
-  const number = parseFloat(string) || 0;
-  modelValue.value = _.clamp(number, props.min, props.max);
+  const value = unformat(event.target.value);
+  modelValue.value = _.clamp(parseFloat(value) || 0, props.min, props.max);
 
   await nextTick();
   forceUpdate();
   await nextTick();
-  clampSelection(event);
+  clampCursor(event);
 };
 </script>
