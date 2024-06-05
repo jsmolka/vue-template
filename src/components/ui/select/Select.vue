@@ -19,13 +19,15 @@
 </template>
 
 <script setup>
+import {
+  SelectContent,
+  SelectItem,
+  SelectItemText,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { computed } from 'vue';
-import SelectContent from './SelectContent.vue';
-import SelectItem from './SelectItem.vue';
-import SelectItemText from './SelectItemText.vue';
-import SelectRoot from './SelectRoot.vue';
-import SelectTrigger from './SelectTrigger.vue';
-import SelectValue from './SelectValue.vue';
 
 const modelValue = defineModel({ required: false });
 
