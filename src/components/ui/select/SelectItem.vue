@@ -13,7 +13,6 @@
         <CheckIcon class="size-4 text-shade-3" />
       </SelectItemIndicator>
     </span>
-
     <slot />
   </SelectItem>
 </template>

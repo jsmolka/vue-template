@@ -126,6 +126,19 @@
             </span>
           </template>
         </Select>
+        <SelectRoot v-for="disabled in [false, true]" :disabled="disabled">
+          <SelectTrigger>
+            <SelectValue placeholder="Select" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Label</SelectLabel>
+              <SelectItem v-for="item in [1, 2, 3]" :value="item.toString()">
+                <SelectItemText>Value {{ item }}</SelectItemText>
+              </SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </SelectRoot>
       </div>
     </div>
 
@@ -203,7 +216,17 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input, InputNumber } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectItemText } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectItemText,
+  SelectLabel,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';

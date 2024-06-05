@@ -1,10 +1,7 @@
 <template>
   <SelectRoot v-model="selectModelValue" v-bind="$attrs">
     <SelectTrigger :class="props.class">
-      <SelectValue
-        :class="{ 'text-shade-3': selectModelValue == null }"
-        :placeholder="placeholder"
-      />
+      <SelectValue :placeholder="placeholder" />
     </SelectTrigger>
     <SelectContent>
       <SelectItem v-for="(item, index) in items" :value="index.toString()">
