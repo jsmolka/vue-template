@@ -2,7 +2,7 @@
   <input
     :class="
       cn(
-        'flex w-full h-8 px-2 py-1 bg-shade-7 text-sm border rounded-sm transition-colors placeholder:text-shade-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-3 disabled:cursor-not-allowed disabled:opacity-50',
+        'flex w-full h-8 px-2 py-1 bg-shade-7 border rounded-sm transition-colors placeholder:text-shade-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-3 disabled:cursor-not-allowed disabled:opacity-50',
         props.class,
       )
     "

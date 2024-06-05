@@ -38,10 +38,10 @@ body,
 
 body {
   @apply bg-shade-8;
+  @apply text-sm;
   @apply text-shade-2;
 
   font-family: Inter, Roboto, ui-sans-serif, sans-serif;
-  font-size: 14px;
 }
 
 ::selection {
