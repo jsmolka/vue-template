@@ -160,6 +160,11 @@
     </div>
 
     <div class="grid gap-2">
+      <h1>Toast</h1>
+      <Button variant="secondary" @click="toast('Toast message')">Show</Button>
+    </div>
+
+    <div class="grid gap-2">
       <h1>Tooltip</h1>
       <TooltipProvider>
         <Tooltip>
@@ -202,6 +207,7 @@ import { Select, SelectItemText } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { toast } from '@/utils/toast';
 import { CookieIcon, DotsVerticalIcon } from '@radix-icons/vue';
 </script>
 
