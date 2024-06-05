@@ -20,4 +20,11 @@ export default defineConfig({
       '@': relative('./src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        inlineDynamicImports: true,
+      },
+    },
+  },
 });
