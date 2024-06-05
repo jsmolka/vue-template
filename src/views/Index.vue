@@ -92,8 +92,15 @@
       <div class="grid grid-cols-2 gap-2">
         <Input placeholder="Input" />
         <Input placeholder="Input" disabled />
-        <InputNumber placeholder="Input number" :precision="2" unit="mm" />
-        <InputNumber placeholder="Input number" :precision="2" unit="mm" disabled />
+        <InputNumber
+          v-for="disabled in [false, true]"
+          placeholder="Input number"
+          :min="1000"
+          :max="1000"
+          :precision="2"
+          unit="m"
+          :disabled="disabled"
+        />
       </div>
     </div>
 

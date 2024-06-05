@@ -68,10 +68,6 @@ const format = (value) => {
     // Strip zeros
     .replace(/^(-)?0+(?=\d)/, '$1');
 
-  if (value === '') {
-    return value;
-  }
-
   if (value.includes(decimalSeparator)) {
     const [integer, decimal] = value.split(decimalSeparator, 2);
     value =
@@ -79,7 +75,7 @@ const format = (value) => {
         ? `${integer}${decimalSeparator}${decimal.slice(0, props.precision)}`
         : integer;
   }
-  return value + suffix.value;
+  return (value || '0') + suffix.value;
 };
 
 const inputmode = computed(() => {
@@ -87,7 +83,7 @@ const inputmode = computed(() => {
 });
 
 const value = computed(() => {
-  return format((modelValue.value ?? '').toLocaleString());
+  return modelValue.value != null ? format(modelValue.value.toLocaleString()) : null;
 });
 
 const select = (event) => {
