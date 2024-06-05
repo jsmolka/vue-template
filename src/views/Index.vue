@@ -131,12 +131,20 @@
             <SelectValue placeholder="Select" />
           </SelectTrigger>
           <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Label</SelectLabel>
-              <SelectItem v-for="item in [1, 2, 3]" :value="item.toString()">
-                <SelectItemText>Value {{ item }}</SelectItemText>
-              </SelectItem>
-            </SelectGroup>
+            <template
+              v-for="(items, index) in [
+                [1, 2, 3],
+                [4, 5, 6],
+              ]"
+            >
+              <SelectSeparator v-if="index > 0" />
+              <SelectGroup>
+                <SelectLabel>Label</SelectLabel>
+                <SelectItem v-for="item in items" :value="item.toString()">
+                  <SelectItemText>Value {{ item }}</SelectItemText>
+                </SelectItem>
+              </SelectGroup>
+            </template>
           </SelectContent>
         </SelectRoot>
       </div>
@@ -224,6 +232,7 @@ import {
   SelectItemText,
   SelectLabel,
   SelectRoot,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
@@ -236,7 +245,7 @@ import { CookieIcon, DotsVerticalIcon } from '@radix-icons/vue';
 
 <style scoped>
 h1 {
-  @apply text-lg;
+  @apply text-base;
   @apply text-shade-1;
   @apply font-semibold;
 }
