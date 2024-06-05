@@ -4,8 +4,8 @@
   @apply p-4;
 
   * {
-    animation-delay: 0ms !important;
-    animation-duration: 150ms !important;
+    @apply delay-0;
+    @apply duration-150;
   }
 
   &__toast {
@@ -14,10 +14,8 @@
     @apply cursor-pointer;
     @apply shadow;
 
-    animation-timing-function: ease-out;
-
-    &--disappear {
-      animation-timing-function: ease-in;
+    &--lower {
+      @apply mt-4;
     }
   }
 
@@ -34,5 +32,27 @@
 @media only screen and (max-width: 480px) {
   .notyf {
     @apply p-4;
+  }
+}
+
+@keyframes notyf-fadeinup {
+  0% {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notyf-fadeoutdown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0.5rem);
   }
 }
