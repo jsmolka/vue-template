@@ -34,6 +34,26 @@
     </div>
 
     <div class="grid gap-2">
+      <h1>Dialog</h1>
+      <Dialog>
+        <DialogTrigger as-child>
+          <Button variant="secondary">Open</Button>
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Dialog</DialogTitle>
+            <DialogDescription>{{ description }}</DialogDescription>
+          </DialogHeader>
+          <p>{{ description }}</p>
+          <DialogFooter>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="default">Default</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </div>
+
+    <div class="grid gap-2">
       <h1>Dropdown Menu</h1>
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
@@ -206,6 +226,15 @@ import Logo from '@/components/Logo.vue';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
@@ -241,6 +270,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { toast } from '@/utils/toast';
 import { CookieIcon, DotsVerticalIcon } from '@radix-icons/vue';
+
+const description =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. mollit anim id est laborum.';
 </script>
 
 <style scoped>
