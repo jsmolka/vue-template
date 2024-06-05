@@ -95,8 +95,8 @@
         <InputNumber
           v-for="disabled in [false, true]"
           placeholder="Input number"
-          :min="1000"
-          :max="1000"
+          :min="-1000"
+          :max="+1000"
           :precision="2"
           unit="m"
           :disabled="disabled"

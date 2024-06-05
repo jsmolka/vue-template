@@ -86,15 +86,25 @@ const value = computed(() => {
   return modelValue.value != null ? format(modelValue.value.toLocaleString()) : null;
 });
 
-const select = (event) => {
-  const string = unformat(event.target.value);
-  event.target.setSelectionRange(0, string.length);
-};
-
 let selectionStart = null;
 let selectionEnd = null;
 
+const select = (event) => {
+  const string = unformat(event.target.value);
+
+  selectionStart = 0;
+  selectionEnd = string.length;
+
+  event.target.setSelectionRange(selectionStart, selectionEnd);
+};
+
 const clampNavigation = (event) => {
+  if (event.ctrlKey && event.code === 'KeyA') {
+    event.preventDefault();
+    select(event);
+    return;
+  }
+
   const string = unformat(event.target.value);
 
   selectionStart ??= event.target.selectionStart;
