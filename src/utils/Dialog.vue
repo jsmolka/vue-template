@@ -1,13 +1,5 @@
 <template>
-  <Dialog
-    :open="state.visible"
-    @update:open="
-      state.visible = $event;
-      if (!$event) {
-        close();
-      }
-    "
-  >
+  <Dialog :open="state.visible" @update:open="close(null)">
     <DialogContent>
       <VisuallyHidden>
         <DialogHeader>
@@ -41,11 +33,11 @@ import { reactive } from 'vue';
 const state = reactive({
   message: '',
   buttons: [],
-  resolve: null,
+  resolve: () => {},
   visible: false,
 });
 
-const show = async (message, buttons) =>
+const open = async (message, buttons) =>
   new Promise((resolve) => {
     state.message = message;
     state.buttons = buttons;
@@ -53,10 +45,10 @@ const show = async (message, buttons) =>
     state.visible = true;
   });
 
-const close = (value = null) => {
+const close = (value) => {
   state.visible = false;
   state.resolve(value);
 };
 
-defineExpose({ show });
+defineExpose({ open });
 </script>
