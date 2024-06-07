@@ -42,22 +42,22 @@
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Dialog</DialogTitle>
-              <DialogDescription>{{ text }}</DialogDescription>
+              <DialogTitle>Title</DialogTitle>
+              <DialogDescription>Description</DialogDescription>
             </DialogHeader>
-            <p>{{ text }}</p>
+            <p>Content</p>
             <DialogFooter>
-              <Button variant="default" @click="close">Default</Button>
-              <Button variant="secondary" @click="close">Secondary</Button>
+              <Button variant="default" @click="close">Button</Button>
+              <Button variant="secondary" @click="close">Button</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
         <Button
           variant="secondary"
           @click="
-            dialog(text, [
-              { text: 'Default', variant: 'default' },
-              { text: 'Secondary', variant: 'secondary' },
+            dialog('Content', [
+              { text: 'Button', variant: 'default' },
+              { text: 'Button', variant: 'secondary' },
             ])
           "
         >
@@ -139,8 +139,8 @@
 
     <div class="grid gap-2">
       <h1>Label</h1>
-      <Label>Length</Label>
-      <InputNumber :model-value="100" unit="mm" />
+      <Label>Label</Label>
+      <Input placeholder="Input" />
     </div>
 
     <div class="grid gap-2">
@@ -222,14 +222,14 @@
           class="px-2 py-1.5 border rounded-sm"
           :value="value"
         >
-          <span class="font-feature-tnum">{{ value }}.</span> {{ text }}
+          Content {{ value }}
         </TabsContent>
       </Tabs>
     </div>
 
     <div class="grid gap-2">
       <h1>Toast</h1>
-      <Button variant="secondary" @click="toast('Toast message')">Show</Button>
+      <Button variant="secondary" @click="toast('Message')">Show</Button>
     </div>
 
     <div class="grid gap-2">
@@ -240,7 +240,7 @@
             <Button variant="secondary">Hover</Button>
           </TooltipTrigger>
           <TooltipContent>
-            <p>Tooltip content</p>
+            <p>Content</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
