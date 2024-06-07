@@ -36,7 +36,7 @@
     <div class="grid gap-2">
       <h1>Dialog</h1>
       <div class="grid grid-cols-2 gap-2">
-        <Dialog>
+        <Dialog v-slot="{ close }">
           <DialogTrigger as-child>
             <Button variant="secondary">Open</Button>
           </DialogTrigger>
@@ -47,8 +47,8 @@
             </DialogHeader>
             <p>{{ description }}</p>
             <DialogFooter>
-              <Button variant="secondary">Secondary</Button>
-              <Button variant="default">Default</Button>
+              <Button variant="secondary" @click="close">Secondary</Button>
+              <Button variant="default" @click="close">Default</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
