@@ -194,6 +194,22 @@
     </div>
 
     <div class="grid gap-2">
+      <h1>Table</h1>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead v-for="value in [1, 2, 3]">Head {{ value }}</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow v-for="_ in [1, 2, 3]">
+            <TableCell v-for="value in [1, 2, 3]">Value {{ value }}</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </div>
+
+    <div class="grid gap-2">
       <h1>Tabs</h1>
       <Tabs default-value="1">
         <TabsList class="grid grid-cols-3">
@@ -279,6 +295,14 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { dialog } from '@/utils/dialog';
@@ -293,6 +317,6 @@ const description =
 h1 {
   @apply text-base;
   @apply text-shade-1;
-  @apply font-semibold;
+  @apply font-bold;
 }
 </style>
