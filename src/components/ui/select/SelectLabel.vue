@@ -1,5 +1,5 @@
 <template>
-  <SelectLabel :class="cn('px-2 py-1.5 font-semibold', props.class)">
+  <SelectLabel :class="cn('px-2 py-1.5 text-shade-1 font-semibold', props.class)">
     <slot />
   </SelectLabel>
 </template>

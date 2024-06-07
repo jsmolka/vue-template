@@ -317,6 +317,6 @@ const description =
 h1 {
   @apply text-base;
   @apply text-shade-1;
-  @apply font-bold;
+  @apply font-semibold;
 }
 </style>
