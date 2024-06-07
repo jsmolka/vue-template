@@ -36,7 +36,7 @@ const props = defineProps({
   collisionPadding: { type: [Number, Object], required: false },
   hideWhenDetached: { type: Boolean, required: false },
   side: { required: false },
-  sideOffset: { type: Number, required: false, default: 4 },
+  sideOffset: { type: Number, default: 4 },
   sticky: { type: String, required: false },
 });
 

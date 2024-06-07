@@ -14,7 +14,7 @@ import { cva } from 'class-variance-authority';
 import { Primitive } from 'radix-vue';
 
 const props = defineProps({
-  as: { required: false, default: 'button' },
+  as: { default: 'button' },
   asChild: { type: Boolean, required: false },
   class: { required: false },
   size: { required: false },
