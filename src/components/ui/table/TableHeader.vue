@@ -1,13 +1,5 @@
 <template>
-  <thead :class="cn('[&_tr]:border-b', props.class)">
+  <thead v-bind="$attrs">
     <slot />
   </thead>
 </template>
-
-<script setup>
-import { cn } from '@/utils/ui';
-
-const props = defineProps({
-  class: { required: false },
-});
-</script>

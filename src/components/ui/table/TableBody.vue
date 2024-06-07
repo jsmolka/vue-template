@@ -1,5 +1,5 @@
 <template>
-  <tbody :class="cn('odd:[&_tr]:bg-shade-7 [&_tr:last-child]:border-b-0', props.class)">
+  <tbody :class="cn('odd:[&_tr]:bg-shade-7 last:[&_tr]:border-b-0', props.class)">
     <slot />
   </tbody>
 </template>
