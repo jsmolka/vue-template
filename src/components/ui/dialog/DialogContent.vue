@@ -31,6 +31,7 @@ const props = defineProps({
   forceMount: { type: Boolean, required: false },
   trapFocus: { type: Boolean, required: false },
 });
+
 const emits = defineEmits([
   'escapeKeyDown',
   'pointerDownOutside',

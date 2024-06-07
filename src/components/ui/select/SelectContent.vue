@@ -45,6 +45,7 @@ const props = defineProps({
   sticky: { type: String, required: false },
   updatePositionStrategy: { type: String, required: false },
 });
+
 const emits = defineEmits(['closeAutoFocus', 'escapeKeyDown', 'pointerDownOutside']);
 
 const delegatedProps = computed(() => {

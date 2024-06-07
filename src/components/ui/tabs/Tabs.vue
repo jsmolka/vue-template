@@ -16,6 +16,7 @@ const props = defineProps({
   modelValue: { required: false },
   orientation: { type: String, required: false },
 });
+
 const emits = defineEmits(['update:modelValue']);
 
 const forwarded = useForwardPropsEmits(props, emits);

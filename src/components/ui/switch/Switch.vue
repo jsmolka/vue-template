@@ -4,7 +4,7 @@
     v-bind="forwarded"
     :class="
       cn(
-        'peer inline-flex items-center shrink-0 w-9 h-5 border-2 border-transparent rounded-full cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-3 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-brand-3 data-[state=unchecked]:bg-shade-6',
+        'peer inline-flex items-center shrink-0 w-9 h-5 cursor-pointer border-2 border-transparent rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-3 disabled:opacity-50 disabled:cursor-not-allowed data-[state=checked]:bg-brand-3 data-[state=unchecked]:bg-shade-6',
         props.class,
       )
     "

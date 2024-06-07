@@ -3,7 +3,7 @@
     v-bind="delegatedProps"
     :class="
       cn(
-        'text-xs font-medium leading-none uppercase peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        'text-xs font-medium leading-none uppercase peer-disabled:opacity-50 peer-disabled:cursor-not-allowed',
         props.class,
       )
     "

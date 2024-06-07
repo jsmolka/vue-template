@@ -13,6 +13,7 @@ const props = defineProps({
   modal: { type: Boolean, required: false },
   open: { type: Boolean, required: false },
 });
+
 const emits = defineEmits(['update:open']);
 
 const forwarded = useForwardPropsEmits(props, emits);

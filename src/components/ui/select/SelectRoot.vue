@@ -18,6 +18,7 @@ const props = defineProps({
   open: { type: Boolean, required: false },
   required: { type: Boolean, required: false },
 });
+
 const emits = defineEmits(['update:modelValue', 'update:open']);
 
 const forwarded = useForwardPropsEmits(props, emits);

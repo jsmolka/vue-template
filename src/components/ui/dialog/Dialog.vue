@@ -13,6 +13,7 @@ const props = defineProps({
   defaultOpen: { type: Boolean, required: false },
   modal: { type: Boolean, required: false },
 });
+
 const forwarded = useForwardProps(props);
 
 const close = () => {

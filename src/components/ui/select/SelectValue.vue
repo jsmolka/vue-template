@@ -1,5 +1,5 @@
 <template>
-  <SelectValue class="[[data-placeholder]_&]:text-shade-3 select-none" v-bind="props">
+  <SelectValue class="select-none [[data-placeholder]_&]:text-shade-3" v-bind="props">
     <slot />
   </SelectValue>
 </template>

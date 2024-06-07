@@ -1,5 +1,5 @@
 <template>
-  <SelectGroup :class="cn('w-full p-1', props.class)" v-bind="delegatedProps">
+  <SelectGroup :class="cn('w-full', props.class)" v-bind="delegatedProps">
     <slot />
   </SelectGroup>
 </template>

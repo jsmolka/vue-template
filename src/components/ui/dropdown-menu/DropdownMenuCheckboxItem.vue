@@ -4,7 +4,7 @@
     v-bind="forwarded"
     :class="
       cn(
-        'relative flex items-center py-1.5 pl-8 pr-2 rounded-sm cursor-pointer select-none outline-none transition-colors focus:bg-shade-6 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+        'relative flex items-center pl-8 pr-2 py-1.5 cursor-pointer select-none rounded-sm outline-none transition-colors focus:bg-shade-6 data-[disabled]:opacity-50 data-[disabled]:pointer-events-none',
         props.class,
       )
     "
@@ -37,6 +37,7 @@ const props = defineProps({
   disabled: { type: Boolean, required: false },
   textValue: { type: String, required: false },
 });
+
 const emits = defineEmits(['select']);
 
 const delegatedProps = computed(() => {
