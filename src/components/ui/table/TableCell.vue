@@ -1,5 +1,5 @@
 <template>
-  <td :class="cn('px-2.5 py-1.5', props.class)">
+  <td :class="cn('px-2 py-1.5', props.class)">
     <slot />
   </td>
 </template>
