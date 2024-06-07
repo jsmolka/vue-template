@@ -40,17 +40,31 @@ export async function selectFiles(...patterns) {
   });
 }
 
-export async function read(file) {
+export async function readAsText(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = (event) => {
       try {
-        return resolve(event.target.result);
+        resolve(event.target.result);
       } catch (error) {
-        return reject(error);
+        reject(error);
       }
     };
     reader.readAsText(file);
+  });
+}
+
+export async function readAsArrayBuffer(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        resolve(event.target.result);
+      } catch (error) {
+        reject(error);
+      }
+    };
+    reader.readAsArrayBuffer(file);
   });
 }
 
