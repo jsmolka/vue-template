@@ -14,8 +14,8 @@
           <Button
             v-for="variant in ['default', 'secondary', 'outline', 'ghost']"
             :variant="variant"
-            :disabled="disabled"
             size="icon"
+            :disabled="disabled"
           >
             <DotsVerticalIcon />
           </Button>
@@ -43,9 +43,9 @@
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Dialog</DialogTitle>
-              <DialogDescription>{{ description }}</DialogDescription>
+              <DialogDescription>{{ text }}</DialogDescription>
             </DialogHeader>
-            <p>{{ description }}</p>
+            <p>{{ text }}</p>
             <DialogFooter>
               <Button variant="default" @click="close">Default</Button>
               <Button variant="secondary" @click="close">Secondary</Button>
@@ -55,7 +55,7 @@
         <Button
           variant="secondary"
           @click="
-            dialog(description, [
+            dialog(text, [
               { text: 'Default', variant: 'default' },
               { text: 'Secondary', variant: 'secondary' },
             ])
@@ -154,7 +154,7 @@
         >
           <template #item="{ item }">
             <span class="flex items-center gap-2">
-              <CookieIcon />
+              <GearIcon />
               <SelectItemText>Value {{ item }}</SelectItemText>
             </span>
           </template>
@@ -211,20 +211,18 @@
 
     <div class="grid gap-2">
       <h1>Tabs</h1>
-      <Tabs default-value="1">
+      <Tabs :default-value="1">
         <TabsList class="grid grid-cols-3">
-          <TabsTrigger value="1">Tab 1</TabsTrigger>
-          <TabsTrigger value="2">Tab 2</TabsTrigger>
-          <TabsTrigger value="3" disabled>Tab 3</TabsTrigger>
+          <TabsTrigger :value="1">Tab 1</TabsTrigger>
+          <TabsTrigger :value="2">Tab 2</TabsTrigger>
+          <TabsTrigger :value="3" disabled>Tab 3</TabsTrigger>
         </TabsList>
-        <TabsContent value="1">
-          <div class="border rounded-sm p-2">Tab content 1</div>
-        </TabsContent>
-        <TabsContent value="2">
-          <div class="border rounded-sm p-2">Tab content 2</div>
-        </TabsContent>
-        <TabsContent value="3">
-          <div class="border rounded-sm p-2">Tab content 3</div>
+        <TabsContent
+          v-for="value in [1, 2, 3]"
+          class="px-2 py-1.5 border rounded-sm"
+          :value="value"
+        >
+          <span class="font-feature-tnum">{{ value }}.</span> {{ text }}
         </TabsContent>
       </Tabs>
     </div>
@@ -242,7 +240,7 @@
             <Button variant="secondary">Hover</Button>
           </TooltipTrigger>
           <TooltipContent>
-            <p>Content</p>
+            <p>Tooltip content</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
@@ -307,10 +305,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { dialog } from '@/utils/dialog';
 import { toast } from '@/utils/toast';
-import { CookieIcon, DotsVerticalIcon } from '@radix-icons/vue';
+import { DotsVerticalIcon, GearIcon } from '@radix-icons/vue';
 
-const description =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+const text =
+  'Vue.js is an open-source front end JavaScript framework for building user interfaces and single-page applications.';
 </script>
 
 <style scoped>
