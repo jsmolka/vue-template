@@ -9,8 +9,10 @@ function mount() {
   return {
     dialog: app.mount(div),
     unmount() {
-      app.unmount();
-      div.remove();
+      setTimeout(() => {
+        app.unmount();
+        div.remove();
+      }, 150);
     },
   };
 }
