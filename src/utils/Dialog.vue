@@ -1,13 +1,11 @@
 <template>
-  <Dialog :open="state.visible" @update:open="close(null)">
+  <Dialog :open="state.open" @update:open="close(null)">
     <DialogContent>
-      <VisuallyHidden>
-        <DialogHeader>
-          <DialogTitle>Title</DialogTitle>
-          <DialogDescription>Description</DialogDescription>
-        </DialogHeader>
-      </VisuallyHidden>
-      <p class="max-w-max">{{ state.message }}</p>
+      <DialogHeader v-show="state.title || state.description">
+        <DialogTitle v-show="state.title">{{ state.title }}</DialogTitle>
+        <DialogDescription v-show="state.description">{{ state.description }}</DialogDescription>
+      </DialogHeader>
+      <p class="max-w-max">{{ state.content }}</p>
       <DialogFooter v-if="state.buttons.length > 0">
         <Button v-for="(button, index) in state.buttons" @click="close(index)" v-bind="button">
           {{ button.text }}
@@ -27,26 +25,42 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { VisuallyHidden } from 'radix-vue';
+import _ from 'lodash';
 import { reactive } from 'vue';
 
 const state = reactive({
-  message: '',
+  title: '',
+  description: '',
+  content: '',
   buttons: [],
   resolve: () => {},
-  visible: false,
+  open: false,
 });
 
-const open = async (message, buttons) =>
-  new Promise((resolve) => {
-    state.message = message;
-    state.buttons = buttons;
+const open = async (options) => {
+  options = _.merge(
+    {
+      title: '',
+      description: '',
+      content: '',
+      buttons: [],
+    },
+    options,
+  );
+
+  state.title = options.title;
+  state.description = options.description;
+  state.content = options.content;
+  state.buttons = options.buttons;
+
+  return new Promise((resolve) => {
     state.resolve = resolve;
-    state.visible = true;
+    state.open = true;
   });
+};
 
 const close = (value) => {
-  state.visible = false;
+  state.open = false;
   state.resolve(value);
 };
 

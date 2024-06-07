@@ -55,10 +55,15 @@
         <Button
           variant="secondary"
           @click="
-            dialog('Content', [
-              { text: 'Button', variant: 'default' },
-              { text: 'Button', variant: 'secondary' },
-            ])
+            dialog({
+              title: 'Title',
+              description: 'Description',
+              content: 'Content',
+              buttons: [
+                { text: 'Button', variant: 'default' },
+                { text: 'Button', variant: 'secondary' },
+              ],
+            })
           "
         >
           Open
