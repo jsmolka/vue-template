@@ -17,10 +17,10 @@ function mount() {
   };
 }
 
-export async function dialog(content, buttons) {
+export async function dialog(options) {
   const { dialog, unmount } = mount();
   try {
-    return await dialog.open(content, buttons);
+    return await dialog.open(options);
   } finally {
     unmount();
   }
