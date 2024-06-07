@@ -47,8 +47,8 @@
             </DialogHeader>
             <p>{{ description }}</p>
             <DialogFooter>
-              <Button variant="secondary" @click="close">Secondary</Button>
               <Button variant="default" @click="close">Default</Button>
+              <Button variant="secondary" @click="close">Secondary</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
@@ -56,8 +56,8 @@
           variant="secondary"
           @click="
             dialog(description, [
-              { text: 'Secondary', variant: 'secondary' },
               { text: 'Default', variant: 'default' },
+              { text: 'Secondary', variant: 'secondary' },
             ])
           "
         >
