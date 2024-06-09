@@ -1,16 +1,16 @@
 <template>
-  <div class="grid gap-4 max-w-sm mx-auto p-4">
+  <Form class="max-w-sm mx-auto p-4">
     <Logo class="place-self-center size-8 text-shade-1" />
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Button</h1>
-      <div class="grid grid-cols-2 gap-2">
+      <FormItem class="grid-cols-2">
         <template v-for="variant in ['default', 'secondary', 'outline', 'ghost']">
           <Button v-for="disabled in [false, true]" :variant="variant" :disabled="disabled">
             Button
           </Button>
         </template>
-        <div v-for="disabled in [false, true]" class="grid grid-cols-4 gap-2">
+        <FormItem v-for="disabled in [false, true]" class="grid-flow-col">
           <Button
             v-for="variant in ['default', 'secondary', 'outline', 'ghost']"
             :variant="variant"
@@ -19,23 +19,23 @@
           >
             <DotsVerticalIcon />
           </Button>
-        </div>
-      </div>
-    </div>
+        </FormItem>
+      </FormItem>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Checkbox</h1>
-      <div class="grid grid-cols-4 gap-2">
+      <FormItem class="grid-flow-col">
         <Checkbox :model-value="true" />
         <Checkbox :model-value="true" disabled />
         <Checkbox />
         <Checkbox disabled />
-      </div>
-    </div>
+      </FormItem>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Dialog</h1>
-      <div class="grid grid-cols-2 gap-2">
+      <FormItem class="grid-flow-col">
         <Dialog v-slot="{ close }">
           <DialogTrigger as-child>
             <Button variant="secondary">Open</Button>
@@ -68,10 +68,10 @@
         >
           Open
         </Button>
-      </div>
-    </div>
+      </FormItem>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Dropdown Menu</h1>
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
@@ -123,11 +123,11 @@
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
-    </div>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Input</h1>
-      <div class="grid grid-cols-2 gap-2">
+      <FormItem class="grid-cols-2">
         <Input placeholder="Input" />
         <Input placeholder="Input" disabled />
         <InputNumber
@@ -139,18 +139,18 @@
           suffix=" unit"
           :disabled="disabled"
         />
-      </div>
-    </div>
+      </FormItem>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Label</h1>
       <Label>Label</Label>
       <Input placeholder="Input" />
-    </div>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Select</h1>
-      <div class="grid grid-cols-2 gap-2">
+      <FormItem class="grid-cols-2">
         <Select
           v-for="disabled in [false, true]"
           :items="[1, 2, 3]"
@@ -158,10 +158,7 @@
           :disabled="disabled"
         >
           <template #item="{ item }">
-            <span class="flex items-center gap-2">
-              <GearIcon />
-              <SelectItemText>Value {{ item }}</SelectItemText>
-            </span>
+            <SelectItemText>Value {{ item }}</SelectItemText>
           </template>
         </Select>
         <SelectRoot v-for="disabled in [false, true]" :disabled="disabled">
@@ -179,26 +176,29 @@
               <SelectGroup>
                 <SelectLabel>Label</SelectLabel>
                 <SelectItem v-for="item in items" :value="item.toString()">
-                  <SelectItemText>Value {{ item }}</SelectItemText>
+                  <div class="flex items-center gap-2">
+                    <GearIcon />
+                    <SelectItemText>Value {{ item }}</SelectItemText>
+                  </div>
                 </SelectItem>
               </SelectGroup>
             </template>
           </SelectContent>
         </SelectRoot>
-      </div>
-    </div>
+      </FormItem>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Switch</h1>
-      <div class="grid grid-cols-4 gap-2">
+      <FormItem class="grid-flow-col">
         <Switch :model-value="true" />
         <Switch :model-value="true" disabled />
         <Switch />
         <Switch disabled />
-      </div>
-    </div>
+      </FormItem>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Table</h1>
       <Table>
         <TableHeader>
@@ -212,12 +212,12 @@
           </TableRow>
         </TableBody>
       </Table>
-    </div>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Tabs</h1>
       <Tabs :default-value="1">
-        <TabsList class="grid grid-cols-3">
+        <TabsList class="grid grid-flow-col auto-cols-fr">
           <TabsTrigger :value="1">Tab 1</TabsTrigger>
           <TabsTrigger :value="2">Tab 2</TabsTrigger>
           <TabsTrigger :value="3" disabled>Tab 3</TabsTrigger>
@@ -230,14 +230,14 @@
           Content {{ value }}
         </TabsContent>
       </Tabs>
-    </div>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Toast</h1>
       <Button variant="secondary" @click="toast('Message')">Show</Button>
-    </div>
+    </FormItem>
 
-    <div class="grid gap-2">
+    <FormItem>
       <h1>Tooltip</h1>
       <TooltipProvider>
         <Tooltip>
@@ -249,8 +249,8 @@
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-    </div>
-  </div>
+    </FormItem>
+  </Form>
 </template>
 
 <script setup>
@@ -283,6 +283,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Form, FormItem } from '@/components/ui/form';
 import { Input, InputNumber } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
@@ -311,9 +312,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 import { dialog } from '@/utils/dialog';
 import { toast } from '@/utils/toast';
 import { DotsVerticalIcon, GearIcon } from '@radix-icons/vue';
-
-const text =
-  'Vue.js is an open-source front end JavaScript framework for building user interfaces and single-page applications.';
 </script>
 
 <style scoped>
