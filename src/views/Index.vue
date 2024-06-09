@@ -200,18 +200,20 @@
 
     <FormItem>
       <h1>Table</h1>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead v-for="value in [1, 2, 3]">Head {{ value }}</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          <TableRow v-for="_ in [1, 2, 3]">
-            <TableCell v-for="value in [1, 2, 3]">Value {{ value }}</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
+      <TableWrapper>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead v-for="value in [1, 2, 3]">Head {{ value }}</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow v-for="_ in [1, 2, 3]">
+              <TableCell v-for="value in [1, 2, 3]">Value {{ value }}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableWrapper>
     </FormItem>
 
     <FormItem>
@@ -306,6 +308,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
+  TableWrapper,
 } from '@/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
