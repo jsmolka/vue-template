@@ -4,13 +4,13 @@
 
     <FormItem>
       <h1>Button</h1>
-      <FormItem class="grid-cols-2">
+      <FormItem class="grid grid-cols-2">
         <template v-for="variant in ['default', 'secondary', 'outline', 'ghost']">
           <Button v-for="disabled in [false, true]" :variant="variant" :disabled="disabled">
             Button
           </Button>
         </template>
-        <FormItem v-for="disabled in [false, true]" class="grid-flow-col">
+        <FormItem v-for="disabled in [false, true]" class="grid grid-flow-col">
           <Button
             v-for="variant in ['default', 'secondary', 'outline', 'ghost']"
             :variant="variant"
@@ -25,7 +25,7 @@
 
     <FormItem>
       <h1>Checkbox</h1>
-      <FormItem class="grid-flow-col">
+      <FormItem class="grid grid-flow-col">
         <Checkbox :model-value="true" />
         <Checkbox :model-value="true" disabled />
         <Checkbox />
@@ -35,7 +35,7 @@
 
     <FormItem>
       <h1>Dialog</h1>
-      <FormItem class="grid-flow-col">
+      <FormItem class="grid grid-flow-col">
         <Dialog v-slot="{ close }">
           <DialogTrigger as-child>
             <Button variant="secondary">Open</Button>
@@ -127,7 +127,7 @@
 
     <FormItem>
       <h1>Input</h1>
-      <FormItem class="grid-cols-2">
+      <FormItem class="grid grid-cols-2">
         <Input placeholder="Input" />
         <Input placeholder="Input" disabled />
         <InputNumber
@@ -150,7 +150,7 @@
 
     <FormItem>
       <h1>Select</h1>
-      <FormItem class="grid-cols-2">
+      <FormItem class="grid grid-cols-2">
         <Select
           v-for="disabled in [false, true]"
           :items="[1, 2, 3]"
@@ -190,7 +190,7 @@
 
     <FormItem>
       <h1>Switch</h1>
-      <FormItem class="grid-flow-col">
+      <FormItem class="grid grid-flow-col">
         <Switch :model-value="true" />
         <Switch :model-value="true" disabled />
         <Switch />
