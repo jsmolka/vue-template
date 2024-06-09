@@ -136,7 +136,7 @@
           :min="-1000"
           :max="+1000"
           :precision="2"
-          unit="m"
+          suffix="m"
           :disabled="disabled"
         />
       </div>

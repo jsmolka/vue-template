@@ -33,11 +33,11 @@ const props = defineProps({
   max: { type: Number, default: Number.MAX_SAFE_INTEGER },
   min: { type: Number, default: Number.MIN_SAFE_INTEGER },
   precision: { type: Number, default: 0 },
-  unit: { type: String, default: '' },
+  suffix: { type: String, default: '' },
 });
 
 const suffix = computed(() => {
-  return props.unit !== '' ? ` ${props.unit}` : '';
+  return props.suffix !== '' ? ` ${props.suffix}` : '';
 });
 
 const unformat = (value) => {
