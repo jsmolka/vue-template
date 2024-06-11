@@ -13,7 +13,7 @@
         <DialogTitle v-show="title">{{ title }}</DialogTitle>
         <DialogDescription v-show="description">{{ description }}</DialogDescription>
       </DialogHeader>
-      <p class="max-w-max">{{ content }}</p>
+      <p class="max-w-max" v-html="content" />
       <DialogFooter ref="footer" v-if="buttons.length > 0">
         <Button
           v-for="(button, index) in buttons"
