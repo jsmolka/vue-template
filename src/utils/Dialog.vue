@@ -1,13 +1,28 @@
 <template>
-  <Dialog :open="state.open" @update:open="close(null)">
+  <Dialog
+    :open="resolve != null"
+    @update:open="
+      if (!$event) {
+        resolve(null);
+        resolve = null;
+      }
+    "
+  >
     <DialogContent>
-      <DialogHeader v-show="state.title || state.description">
-        <DialogTitle v-show="state.title">{{ state.title }}</DialogTitle>
-        <DialogDescription v-show="state.description">{{ state.description }}</DialogDescription>
+      <DialogHeader v-show="title || description">
+        <DialogTitle v-show="title">{{ title }}</DialogTitle>
+        <DialogDescription v-show="description">{{ description }}</DialogDescription>
       </DialogHeader>
-      <p class="max-w-max">{{ state.content }}</p>
-      <DialogFooter ref="footer" v-show="state.buttons.length > 0">
-        <Button v-for="(button, index) in state.buttons" @click="close(index)" v-bind="button">
+      <p class="max-w-max">{{ content }}</p>
+      <DialogFooter ref="footer" v-if="buttons.length > 0">
+        <Button
+          v-for="(button, index) in buttons"
+          v-bind="button"
+          @click="
+            resolve(index);
+            resolve = null;
+          "
+        >
           {{ button.text }}
         </Button>
       </DialogFooter>
@@ -25,50 +40,27 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import _ from 'lodash';
-import { nextTick, reactive, ref } from 'vue';
+import { nextTick, ref } from 'vue';
 
-const footer = ref();
-
-const state = reactive({
-  title: '',
-  description: '',
-  content: '',
-  buttons: [],
-  resolve: () => {},
-  open: false,
+const props = defineProps({
+  title: { type: String, default: '' },
+  description: { type: String, default: '' },
+  content: { type: String, default: '' },
+  buttons: { type: Array, default: [] },
 });
 
-const open = async (options) => {
-  options = _.merge(
-    {
-      title: '',
-      description: '',
-      content: '',
-      buttons: [],
-    },
-    options,
-  );
+const footer = ref();
+const resolve = ref(null);
 
-  state.title = options.title;
-  state.description = options.description;
-  state.content = options.content;
-  state.buttons = options.buttons;
+const open = async () => {
+  return new Promise(async (promiseResolve) => {
+    resolve.value = promiseResolve;
 
-  return new Promise(async (resolve) => {
-    state.resolve = resolve;
-    state.open = true;
-
-    if (state.buttons.length > 0) {
+    if (props.buttons.length > 0) {
       await nextTick();
       footer.value.$el.children[0].focus();
     }
   });
-};
-
-const close = (value) => {
-  state.open = false;
-  state.resolve(value);
 };
 
 defineExpose({ open });
