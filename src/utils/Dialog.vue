@@ -6,7 +6,7 @@
         <DialogDescription v-show="state.description">{{ state.description }}</DialogDescription>
       </DialogHeader>
       <p class="max-w-max">{{ state.content }}</p>
-      <DialogFooter v-if="state.buttons.length > 0">
+      <DialogFooter ref="footer" v-show="state.buttons.length > 0">
         <Button v-for="(button, index) in state.buttons" @click="close(index)" v-bind="button">
           {{ button.text }}
         </Button>
@@ -26,7 +26,9 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import _ from 'lodash';
-import { reactive } from 'vue';
+import { nextTick, reactive, ref } from 'vue';
+
+const footer = ref();
 
 const state = reactive({
   title: '',
@@ -53,9 +55,14 @@ const open = async (options) => {
   state.content = options.content;
   state.buttons = options.buttons;
 
-  return new Promise((resolve) => {
+  return new Promise(async (resolve) => {
     state.resolve = resolve;
     state.open = true;
+
+    if (state.buttons.length > 0) {
+      await nextTick();
+      footer.value.$el.children[0].focus();
+    }
   });
 };
 
