@@ -1,5 +1,5 @@
 <template>
-  <DialogRoot v-model:open="open" v-bind="forwarded">
+  <DialogRoot v-bind="forwardedProps" v-model:open="open">
     <slot :close="close" />
   </DialogRoot>
 </template>
@@ -14,7 +14,7 @@ const props = defineProps({
   modal: { type: Boolean, required: false },
 });
 
-const forwarded = useForwardProps(props);
+const forwardedProps = useForwardProps(props);
 
 const close = () => {
   open.value = false;
