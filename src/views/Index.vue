@@ -1,6 +1,6 @@
 <template>
   <Form class="max-w-sm mx-auto p-4">
-    <Logo class="place-self-center size-8 text-shade-1" />
+    <Logo class="self-center size-8 text-shade-1" />
 
     <FormItem>
       <h1>Button</h1>
