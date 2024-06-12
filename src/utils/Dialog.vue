@@ -1,28 +1,13 @@
 <template>
-  <Dialog
-    :open="resolve != null"
-    @update:open="
-      if (!$event) {
-        resolve(null);
-        resolve = null;
-      }
-    "
-  >
+  <Dialog v-model:open="isOpen">
     <DialogContent>
       <DialogHeader v-show="title || description">
         <DialogTitle v-show="title">{{ title }}</DialogTitle>
         <DialogDescription v-show="description">{{ description }}</DialogDescription>
       </DialogHeader>
       <p class="max-w-max" v-html="content" />
-      <DialogFooter ref="footer" v-if="buttons.length > 0">
-        <Button
-          v-for="(button, index) in buttons"
-          v-bind="button"
-          @click="
-            resolve(index);
-            resolve = null;
-          "
-        >
+      <DialogFooter v-if="buttons.length > 0">
+        <Button v-for="(button, index) in buttons" v-bind="button" @click="close(index)">
           {{ button.text }}
         </Button>
       </DialogFooter>
@@ -40,7 +25,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { nextTick, ref } from 'vue';
+import { computed, ref } from 'vue';
 
 const props = defineProps({
   title: { type: String, default: '' },
@@ -49,19 +34,27 @@ const props = defineProps({
   buttons: { type: Array, default: [] },
 });
 
-const footer = ref();
 const resolve = ref(null);
 
 const open = async () => {
-  return new Promise(async (promiseResolve) => {
-    resolve.value = promiseResolve;
-
-    if (props.buttons.length > 0) {
-      await nextTick();
-      footer.value.$el.children[0].focus();
-    }
+  return new Promise(async (res) => {
+    resolve.value = res;
   });
 };
+
+const close = (value) => {
+  resolve.value(value);
+  resolve.value = null;
+};
+
+const isOpen = computed({
+  get: () => resolve.value != null,
+  set: (open) => {
+    if (!open) {
+      close(null);
+    }
+  },
+});
 
 defineExpose({ open });
 </script>
