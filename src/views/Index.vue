@@ -251,8 +251,8 @@
     <FormItem>
       <h1>Textarea</h1>
       <FormItem class="grid grid-cols-2">
-        <Textarea placeholder="Placeholder" />
-        <Textarea placeholder="Placeholder" disabled />
+        <Textarea placeholder="Textarea" />
+        <Textarea placeholder="Textarea" disabled />
       </FormItem>
     </FormItem>
 
