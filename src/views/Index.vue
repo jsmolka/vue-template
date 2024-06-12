@@ -36,7 +36,7 @@
     <FormItem>
       <h1>Dialog</h1>
       <FormItem class="grid grid-flow-col">
-        <Dialog v-slot="{ close }">
+        <Dialog>
           <DialogTrigger as-child>
             <Button variant="secondary">Open</Button>
           </DialogTrigger>
@@ -47,8 +47,12 @@
             </DialogHeader>
             <p>Content</p>
             <DialogFooter>
-              <Button variant="default" @click="close">Button</Button>
-              <Button variant="secondary" @click="close">Button</Button>
+              <DialogClose as-child>
+                <Button variant="default">Button</Button>
+              </DialogClose>
+              <DialogClose>
+                <Button variant="secondary">Button</Button>
+              </DialogClose>
             </DialogFooter>
           </DialogContent>
         </Dialog>
@@ -261,6 +265,7 @@ import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
