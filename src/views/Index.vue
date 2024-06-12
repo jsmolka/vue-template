@@ -50,7 +50,7 @@
               <DialogClose as-child>
                 <Button variant="default">Button</Button>
               </DialogClose>
-              <DialogClose>
+              <DialogClose as-child>
                 <Button variant="secondary">Button</Button>
               </DialogClose>
             </DialogFooter>
