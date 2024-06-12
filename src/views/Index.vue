@@ -153,6 +153,16 @@
     </FormItem>
 
     <FormItem>
+      <h1>Popover</h1>
+      <Popover>
+        <PopoverTrigger as-child>
+          <Button variant="secondary">Open</Button>
+        </PopoverTrigger>
+        <PopoverContent>Content</PopoverContent>
+      </Popover>
+    </FormItem>
+
+    <FormItem>
       <h1>Select</h1>
       <FormItem class="grid grid-cols-2">
         <Select
@@ -301,6 +311,7 @@ import {
 import { Form, FormItem } from '@/components/ui/form';
 import { Input, InputNumber } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import {
   Select,
   SelectContent,
