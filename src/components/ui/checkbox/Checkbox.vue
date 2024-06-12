@@ -19,7 +19,7 @@
 <script setup>
 import { cn } from '@/utils/ui';
 import { CheckIcon } from '@radix-icons/vue';
-import { CheckboxIndicator, CheckboxRoot, useForwardProps } from 'radix-vue';
+import { CheckboxIndicator, CheckboxRoot, useForwardPropsEmits } from 'radix-vue';
 import { computed } from 'vue';
 
 const props = defineProps({
@@ -41,5 +41,5 @@ const delegatedProps = computed(() => {
   return delegated;
 });
 
-const forwardedProps = useForwardProps(delegatedProps);
+const forwardedProps = useForwardPropsEmits(delegatedProps, emit);
 </script>
