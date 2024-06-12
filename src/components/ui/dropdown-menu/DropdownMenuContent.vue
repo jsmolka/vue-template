@@ -40,11 +40,11 @@ const props = defineProps({
 });
 
 const emit = defineEmits([
+  'closeAutoFocus',
   'escapeKeyDown',
-  'pointerDownOutside',
   'focusOutside',
   'interactOutside',
-  'closeAutoFocus',
+  'pointerDownOutside',
 ]);
 
 const delegatedProps = computed(() => {
