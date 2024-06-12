@@ -239,6 +239,14 @@
     </FormItem>
 
     <FormItem>
+      <h1>Textarea</h1>
+      <FormItem class="grid grid-cols-2">
+        <Textarea placeholder="Placeholder" />
+        <Textarea placeholder="Placeholder" disabled />
+      </FormItem>
+    </FormItem>
+
+    <FormItem>
       <h1>Toast</h1>
       <Button variant="secondary" @click="toast('Message')">Show</Button>
     </FormItem>
@@ -316,6 +324,7 @@ import {
   TableWrapper,
 } from '@/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Textarea } from '@/components/ui/textarea';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { dialog } from '@/utils/dialog';
 import { toast } from '@/utils/toast';
