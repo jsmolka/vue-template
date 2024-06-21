@@ -1,6 +1,8 @@
 <template>
   <Form class="max-w-sm mx-auto p-4">
-    <Logo class="self-center size-8 text-shade-1" />
+    <RouterLink class="self-center" to="/">
+      <Logo class="size-8 text-shade-1" />
+    </RouterLink>
 
     <FormItem>
       <h1>Button</h1>
