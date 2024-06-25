@@ -10,7 +10,7 @@
       )
     "
   >
-    <span class="absolute left-2 flex justify-center items-center size-3.5">
+    <span class="absolute left-2 flex justify-center items-center size-4">
       <DropdownMenuItemIndicator>
         <CheckIcon class="size-4" />
       </DropdownMenuItemIndicator>
