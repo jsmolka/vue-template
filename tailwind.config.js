@@ -1,6 +1,5 @@
 import animate from 'tailwindcss-animate';
 import colors from 'tailwindcss/colors';
-import plugin from 'tailwindcss/plugin';
 
 export default {
   content: ['./index.html', './src/**/*.{js,vue}'],
@@ -26,10 +25,5 @@ export default {
       transparent: colors.transparent,
     },
   },
-  plugins: [
-    animate,
-    plugin(({ addVariant }) => {
-      addVariant('disabled-within', '&:has([disabled])');
-    }),
-  ],
+  plugins: [animate],
 };
