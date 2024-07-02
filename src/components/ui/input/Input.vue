@@ -19,6 +19,5 @@ const modelValue = defineModel({ type: String, required: false });
 
 const props = defineProps({
   class: { required: false },
-  defaultValue: { type: [String, Number], required: false },
 });
 </script>
