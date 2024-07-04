@@ -21,14 +21,3 @@ const props = defineProps({
   class: { required: false },
 });
 </script>
-
-<style scoped>
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  @apply appearance-none;
-}
-
-input[type='number'] {
-  appearance: textfield;
-}
-</style>
