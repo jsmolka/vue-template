@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 export function makeGetter(expr) {
-  if (_.isNull(expr)) {
+  if (_.isNil(expr)) {
     return (value) => value;
   }
   if (_.isFunction(expr)) {
