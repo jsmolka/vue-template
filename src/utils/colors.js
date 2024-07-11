@@ -4,19 +4,19 @@ function color(variable) {
     .split(' ', 3)
     .map((value) => parseInt(value));
 
-  return {
+  return Object.freeze({
     r,
     g,
     b,
 
     get int() {
-      return (r << 16) | (g << 8) | b;
+      return (this.r << 16) | (this.g << 8) | this.b;
     },
 
     get hex() {
-      return `#${this.int.toString(16).padStart(6, '0')}`;
+      return '#' + this.int.toString(16).padStart(6, '0');
     },
-  };
+  });
 }
 
 export const colors = Object.freeze({
