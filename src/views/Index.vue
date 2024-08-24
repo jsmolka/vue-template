@@ -264,6 +264,42 @@
     </FormItem>
 
     <FormItem>
+      <h1>Toggle</h1>
+      <FormItem class="grid grid-cols-4">
+        <template v-for="value in [true, false]">
+          <template v-for="disabled in [false, true]">
+            <FormItem class="flex-col">
+              <Toggle
+                v-for="variant in ['default', 'outline', 'ghost']"
+                :model-value="value"
+                :variant="variant"
+                :disabled="disabled"
+              >
+                Button
+              </Toggle>
+            </FormItem>
+          </template>
+        </template>
+      </FormItem>
+      <FormItem class="grid grid-cols-2">
+        <template v-for="disabled in [false, true]">
+          <template v-for="value in [true, false]">
+            <FormItem class="flex-row">
+              <Toggle
+                v-for="variant in ['default', 'outline', 'ghost']"
+                :model-value="value"
+                :variant="variant"
+                :disabled="disabled"
+              >
+                <GearIcon />
+              </Toggle>
+            </FormItem>
+          </template>
+        </template>
+      </FormItem>
+    </FormItem>
+
+    <FormItem>
       <h1>Tooltip</h1>
       <TooltipProvider>
         <Tooltip>
@@ -338,6 +374,7 @@ import {
 } from '@/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
+import { Toggle } from '@/components/ui/toggle';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { dialog } from '@/utils/dialog';
 import { toast } from '@/utils/toast';
