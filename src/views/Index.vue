@@ -19,7 +19,7 @@
             size="icon"
             :disabled="disabled"
           >
-            <DotsVerticalIcon />
+            <DotsVerticalIcon class="size-4" />
           </Button>
         </FormItem>
       </FormItem>
@@ -193,7 +193,7 @@
                 <SelectLabel>Label</SelectLabel>
                 <SelectItem v-for="item in items" :value="item.toString()">
                   <div class="flex items-center gap-2">
-                    <GearIcon />
+                    <GearIcon class="size-4" />
                     <SelectItemText>Value {{ item }}</SelectItemText>
                   </div>
                 </SelectItem>
@@ -289,9 +289,10 @@
                 v-for="variant in ['default', 'outline', 'ghost']"
                 :model-value="value"
                 :variant="variant"
+                size="icon"
                 :disabled="disabled"
               >
-                <GearIcon />
+                <GearIcon class="size-4" />
               </Toggle>
             </FormItem>
           </template>
