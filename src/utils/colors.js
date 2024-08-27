@@ -16,6 +16,14 @@ function color(variable) {
     get hex() {
       return '#' + this.int.toString(16).padStart(6, '0');
     },
+
+    get rgb() {
+      return `rgb(${r}, ${g}, ${b})`;
+    },
+
+    rgba(alpha) {
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    },
   });
 }
 
