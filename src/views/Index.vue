@@ -19,7 +19,7 @@
             size="icon"
             :disabled="disabled"
           >
-            <DotsVerticalIcon class="size-4" />
+            <Logo class="size-4" />
           </Button>
         </FormItem>
       </FormItem>
@@ -193,7 +193,7 @@
                 <SelectLabel>Label</SelectLabel>
                 <SelectItem v-for="item in items" :value="item.toString()">
                   <div class="flex items-center gap-2">
-                    <GearIcon class="size-4" />
+                    <Logo class="size-4" />
                     <SelectItemText>Value {{ item }}</SelectItemText>
                   </div>
                 </SelectItem>
@@ -275,24 +275,7 @@
                 :variant="variant"
                 :disabled="disabled"
               >
-                Button
-              </Toggle>
-            </FormItem>
-          </template>
-        </template>
-      </FormItem>
-      <FormItem class="grid grid-cols-2">
-        <template v-for="disabled in [false, true]">
-          <template v-for="value in [true, false]">
-            <FormItem class="flex-row">
-              <Toggle
-                v-for="variant in ['default', 'outline', 'ghost']"
-                :model-value="value"
-                :variant="variant"
-                size="icon"
-                :disabled="disabled"
-              >
-                <GearIcon class="size-4" />
+                Toggle
               </Toggle>
             </FormItem>
           </template>
@@ -379,7 +362,6 @@ import { Toggle } from '@/components/ui/toggle';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { dialog } from '@/utils/dialog';
 import { toast } from '@/utils/toast';
-import { DotsVerticalIcon, GearIcon } from '@radix-icons/vue';
 </script>
 
 <style scoped>
