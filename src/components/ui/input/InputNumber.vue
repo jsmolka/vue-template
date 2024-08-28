@@ -184,7 +184,7 @@ const forceUpdate = useForceUpdate();
 
 const change = async (event) => {
   const value = clamp(
-    Number.parseFloat(unformat(event.target.value).replaceAll(decimalSeparator, '.')) || 0,
+    parseFloat(unformat(event.target.value).replaceAll(decimalSeparator, '.')) || 0,
     props.min,
     props.max,
   );
