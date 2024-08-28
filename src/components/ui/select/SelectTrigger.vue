@@ -10,14 +10,14 @@
   >
     <slot />
     <SelectIcon as-child>
-      <CaretSortIcon class="shrink-0 size-4 text-shade-3" />
+      <PhCaretUpDown class="shrink-0 size-3 text-shade-3" />
     </SelectIcon>
   </SelectTrigger>
 </template>
 
 <script setup>
 import { cn } from '@/utils/ui';
-import { CaretSortIcon } from '@radix-icons/vue';
+import { PhCaretUpDown } from '@phosphor-icons/vue';
 import { SelectIcon, SelectTrigger, useForwardProps } from 'radix-vue';
 import { computed } from 'vue';
 
