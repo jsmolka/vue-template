@@ -9,7 +9,7 @@ export const useSettingsStore = defineStore('settings', () => {
   const settings = ref(new Settings());
 
   const toJson = () => {
-    return { version, data: serialize(settings.value) };
+    return { version: 1, data: serialize(settings.value) };
   };
 
   const fromJson = (data) => {
