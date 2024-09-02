@@ -260,7 +260,12 @@
 
     <FormItem>
       <h1>Toast</h1>
-      <Button variant="secondary" @click="toast('Message')">Show</Button>
+      <FormItem class="grid grid-cols-4">
+        <Button variant="secondary" @click="toast('Message', { type: 'info' })">Info</Button>
+        <Button variant="secondary" @click="toast('Message', { type: 'success' })">Success</Button>
+        <Button variant="secondary" @click="toast('Message', { type: 'warning' })">Warning</Button>
+        <Button variant="secondary" @click="toast('Message', { type: 'error' })">Error</Button>
+      </FormItem>
     </FormItem>
 
     <FormItem>
