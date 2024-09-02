@@ -27,22 +27,35 @@ export function schema(class_) {
   };
 }
 
-export function array(definition, class_ = Array) {
+export function dynamic(getClass) {
   return {
-    serialize: (value) => Array.from(value, definition.serialize),
-    deserialize: (value) => class_.from(value, definition.deserialize),
+    serialize: (value) => serialize(value),
+    deserialize: (value) => {
+      const class_ = getClass(value);
+      if (class_ == null) {
+        throw new Error('No class', value);
+      }
+      return deserialize(class_, value);
+    },
   };
 }
 
-export function nullable(definition) {
+export function array(persist, class_ = Array) {
   return {
-    serialize: (value) => (value != null ? definition.serialize(value) : null),
-    deserialize: (value) => (value != null ? definition.deserialize(value) : null),
+    serialize: (value) => Array.from(value, persist.serialize),
+    deserialize: (value) => class_.from(value, persist.deserialize),
   };
 }
 
-export function alias(name, definition) {
-  return { name, ...definition };
+export function nullable(persist) {
+  return {
+    serialize: (value) => (value != null ? persist.serialize(value) : null),
+    deserialize: (value) => (value != null ? persist.deserialize(value) : null),
+  };
+}
+
+export function alias(name, persist) {
+  return { name, ...persist };
 }
 
 function* prototypes(object) {
