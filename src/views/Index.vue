@@ -36,6 +36,38 @@
     </FormItem>
 
     <FormItem>
+      <h1>Command</h1>
+      <Button variant="secondary" @click="commandOpen = true">Open</Button>
+      <CommandDialog v-model:open="commandOpen">
+        <CommandInput placeholder="Command input" />
+        <CommandList>
+          <CommandEmpty>Empty</CommandEmpty>
+          <CommandGroup heading="Group">
+            <CommandItem value="Value 1">
+              Value 1
+              <CommandShortcut>⌘S</CommandShortcut>
+            </CommandItem>
+            <CommandItem value="Value 2" disabled>
+              Value 2
+              <CommandShortcut>⌘S</CommandShortcut>
+            </CommandItem>
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading="Group">
+            <CommandItem value="Value 3">
+              Value 3
+              <CommandShortcut>⌘S</CommandShortcut>
+            </CommandItem>
+            <CommandItem value="Value 4" disabled>
+              Value 4
+              <CommandShortcut>⌘S</CommandShortcut>
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </CommandDialog>
+    </FormItem>
+
+    <FormItem>
       <h1>Dialog</h1>
       <FormItem class="grid grid-flow-col">
         <Dialog>
@@ -309,6 +341,16 @@ import Logo from '@/components/Logo.vue';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from '@/components/ui/command';
+import {
   Dialog,
   DialogClose,
   DialogContent,
@@ -367,6 +409,9 @@ import { Toggle } from '@/components/ui/toggle';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { dialog } from '@/utils/dialog';
 import { toast } from '@/utils/toast';
+import { ref } from 'vue';
+
+const commandOpen = ref(false);
 </script>
 
 <style scoped>
