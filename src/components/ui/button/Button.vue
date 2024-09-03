@@ -33,7 +33,7 @@ const buttonVariants = cva(
       },
       size: {
         default: 'h-8 px-2.5 py-2',
-        icon: 'size-8',
+        icon: 'shrink-0 size-8',
       },
     },
     defaultVariants: {
