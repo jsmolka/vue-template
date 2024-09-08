@@ -71,14 +71,14 @@ export function serialize(object) {
     const schema = schemas.get(prototype);
     if (schema == null) {
       if (i === 0) {
-        throw new Error('No schema');
+        throw new Error('No schema for', prototype.constructor.name);
       }
       continue;
     }
     for (const [key, { name = key, serialize }] of Object.entries(schema)) {
       const value = object[key];
       if (value === undefined) {
-        console.warn('No value for key', key);
+        console.warn('No value for', prototype.constructor.name, key);
         continue;
       }
       data[name] = serialize(value);
@@ -92,14 +92,14 @@ export function deserialize(class_, data, target = new class_()) {
     const schema = schemas.get(prototype);
     if (schema == null) {
       if (i === 0) {
-        throw new Error('No schema');
+        throw new Error('No schema for', prototype.constructor.name);
       }
       continue;
     }
     for (const [key, { name = key, deserialize }] of Object.entries(schema)) {
       const value = data[name];
       if (value === undefined) {
-        console.warn('No value for key', name);
+        console.warn('No value for', prototype.constructor.name, name);
         continue;
       }
       target[key] = deserialize(value);
