@@ -33,7 +33,7 @@ export function dynamic(getClass) {
     deserialize: (value) => {
       const class_ = getClass(value);
       if (class_ == null) {
-        throw new Error('No class', value);
+        throw new Error('No class');
       }
       return deserialize(class_, value);
     },
