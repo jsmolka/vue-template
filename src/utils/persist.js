@@ -115,11 +115,3 @@ export function clone(object) {
 export function assign(target, source) {
   return deserialize(source.constructor, serialize(source), target);
 }
-
-export function clone(object) {
-  return deserialize(object.constructor, serialize(object));
-}
-
-export function assign(target, source) {
-  return deserialize(source.constructor, serialize(source), target);
-}
