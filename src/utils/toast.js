@@ -1,5 +1,5 @@
 import '@/utils/toast.scss';
-import _ from 'lodash';
+import { merge } from 'lodash-es';
 import { Notyf } from 'notyf';
 
 const notyf = new Notyf({
@@ -29,7 +29,7 @@ const notyf = new Notyf({
 });
 
 export function toast(message, options = {}) {
-  options = _.merge(
+  options = merge(
     {
       type: 'info',
       duration: 5000,
