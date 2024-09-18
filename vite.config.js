@@ -1,4 +1,5 @@
 import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';
 import { fileURLToPath, URL } from 'url';
@@ -14,7 +15,7 @@ export default defineConfig({
       plugins: [autoprefixer, tailwindcss],
     },
   },
-  plugins: [vue()],
+  plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
       '@': relative('./src'),

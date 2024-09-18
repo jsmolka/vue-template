@@ -2,7 +2,7 @@ import animate from 'tailwindcss-animate';
 import colors from 'tailwindcss/colors';
 
 export default {
-  content: ['./index.html', './src/**/*.{js,vue}'],
+  content: ['./index.html', './src/**/*.{js,jsx,vue}'],
   theme: {
     colors: {
       shade: {
