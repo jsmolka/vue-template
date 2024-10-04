@@ -24,3 +24,21 @@ export function radToDeg(radians) {
 export function nthRoot(value, root) {
   return value ** (1 / root);
 }
+
+// Based on https://github.com/josdejong/mathjs/blob/v12.4.3/src/utils/number.js#L626
+export function equals(a, b, epsilon = null) {
+  if (epsilon == null) {
+    return a === b;
+  }
+
+  if (a === b) {
+    return true;
+  }
+
+  if (isNaN(a) || isNaN(b) || !isFinite(a) || !isFinite(b)) {
+    return false;
+  }
+
+  const diff = Math.abs(a - b);
+  return diff <= Number.EPSILON || diff <= epsilon;
+}
