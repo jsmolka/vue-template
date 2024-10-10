@@ -23,7 +23,7 @@
   font-weight: 100 900;
   font-display: block;
   font-style: normal;
-  src: url('/src/assets/fonts/inter.woff2') format('woff2');
+  src: url('@/assets/fonts/inter.woff2') format('woff2');
 }
 
 @font-face {
@@ -31,7 +31,7 @@
   font-weight: 100 900;
   font-display: block;
   font-style: oblique 14deg;
-  src: url('/src/assets/fonts/inter.woff2') format('woff2');
+  src: url('@/assets/fonts/inter.woff2') format('woff2');
 }
 
 html,
