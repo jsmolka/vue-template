@@ -37,11 +37,14 @@ export function toast(message, options = {}) {
         x: 'center',
         y: 'bottom',
       },
+      dismissOnClick: true,
     },
     options,
   );
 
   const notification = notyf.open({ message, ...options });
-  notification.on('click', () => notyf.dismiss(notification));
+  if (options.dismissOnClick) {
+    notification.on('click', () => notyf.dismiss(notification));
+  }
   return notification;
 }
