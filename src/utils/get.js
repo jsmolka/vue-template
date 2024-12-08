@@ -1,6 +1,6 @@
-import { get, isFunction, isInteger, isString } from 'lodash-es';
+import { isFunction, isInteger, isString, get as lodashGet } from 'lodash-es';
 
-export function makeGetter(expr) {
+export function compileGet(expr) {
   if (expr == null) {
     return (value) => value;
   }
@@ -11,7 +11,11 @@ export function makeGetter(expr) {
     return (value) => value[expr];
   }
   if (isString(expr)) {
-    return (value) => get(value, expr);
+    return (value) => lodashGet(value, expr);
   }
   throw 'Bad expr';
+}
+
+export function get(value, expr) {
+  return compileGet(expr)(value);
 }

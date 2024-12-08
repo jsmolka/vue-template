@@ -1,12 +1,12 @@
-import { makeGetter } from '@/utils/get';
+import { compileGet } from '@/utils/get';
 
 function sign(value, ascending) {
   return ascending ? value : -value;
 }
 
 export function makeComparer(compare, expr = null, ascending = true) {
-  const getter = makeGetter(expr);
-  return (a, b) => compare(getter(a), getter(b), ascending);
+  const get = compileGet(expr);
+  return (a, b) => compare(get(a), get(b), ascending);
 }
 
 export function compareNumeric(a, b, ascending = true) {
