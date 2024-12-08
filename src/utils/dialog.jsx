@@ -15,12 +15,14 @@ export async function dialog(props) {
           } finally {
             setTimeout(() => {
               app.unmount();
-              div.remove();
             }, 150);
           }
         }}
       />,
     );
     app.mount(div);
+    app.onUnmount(() => {
+      div.remove();
+    });
   });
 }
