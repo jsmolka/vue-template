@@ -13,6 +13,14 @@ export function compareNumeric(a, b, ascending = true) {
   return sign(a - b, ascending);
 }
 
+export function compareDate(a, b, ascending = true) {
+  return compareNumeric(a.getTime(), b.getTime(), ascending);
+}
+
+export function makeDateComparer(expr = null, ascending = true) {
+  return makeComparer(compareDate, expr, ascending);
+}
+
 export function makeNumericComparer(expr = null, ascending = true) {
   return makeComparer(compareNumeric, expr, ascending);
 }
