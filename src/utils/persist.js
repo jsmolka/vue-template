@@ -1,4 +1,5 @@
 import { enumerate } from '@/utils/iterator.js';
+import { cloneDeep } from 'lodash-es';
 
 const schemas = new Map();
 
@@ -10,6 +11,13 @@ export function primitive() {
   return {
     serialize: (value) => value,
     deserialize: (value) => value,
+  };
+}
+
+export function object() {
+  return {
+    serialize: (value) => cloneDeep(value),
+    deserialize: (value) => cloneDeep(value),
   };
 }
 
