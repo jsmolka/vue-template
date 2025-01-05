@@ -8,7 +8,7 @@ export function mod(x, y) {
 }
 
 export function nthRoot(x, root) {
-  return x ** (1 / root);
+  return Math.sign(x) * Math.abs(x) ** (1 / root);
 }
 
 export function lerp(x, y, ratio) {
