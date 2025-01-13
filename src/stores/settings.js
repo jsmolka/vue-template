@@ -19,16 +19,19 @@ export const useSettingsStore = defineStore('settings', () => {
   };
 
   const storageKey = 'settings';
+  const storageVersion = 1;
 
   const persist = async () => {
-    await set(storageKey, toJson());
+    await set(storageKey, { storageVersion, data: toJson() });
   };
 
   const { ignoreUpdates } = watchIgnorable(settings, persist, { deep: true });
 
   const hydrate = async () => {
     const data = await get(storageKey);
-    ignoreUpdates(() => fromJson(data));
+    if (data != null && data.storageVersion === storageVersion) {
+      ignoreUpdates(() => fromJson(data.data));
+    }
   };
 
   return { settings, toJson, fromJson, persist, hydrate };
