@@ -1,7 +1,7 @@
 import { Settings } from '@/modules/settings';
 import { deserialize, serialize } from '@/utils/persist';
+import { get, set } from '@/utils/store';
 import { watchIgnorable } from '@vueuse/core';
-import { get, set } from 'idb-keyval';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
