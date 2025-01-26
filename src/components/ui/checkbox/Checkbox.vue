@@ -5,12 +5,12 @@
     @update:checked="emit('update:modelValue', $event)"
     :class="
       cn(
-        'peer size-4 shrink-0 border border-brand-3 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed data-[state=checked]:bg-brand-3 data-[state=checked]:text-shade-8',
+        'peer size-4 shrink-0 rounded-sm border border-brand-3 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-brand-3 data-[state=checked]:text-shade-8',
         props.class,
       )
     "
   >
-    <CheckboxIndicator class="flex justify-center items-center">
+    <CheckboxIndicator class="flex items-center justify-center">
       <PhCheck class="size-3" weight="bold" />
     </CheckboxIndicator>
   </CheckboxRoot>

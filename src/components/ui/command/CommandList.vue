@@ -1,7 +1,7 @@
 <template>
   <ComboboxContent
     v-bind="forwardedProps"
-    :class="cn('max-h-[512px] overflow-x-hidden overflow-y-auto', props.class)"
+    :class="cn('max-h-[512px] overflow-y-auto overflow-x-hidden', props.class)"
   >
     <div role="presentation">
       <slot />

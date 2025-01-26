@@ -3,13 +3,13 @@
     v-bind="forwardedProps"
     :class="
       cn(
-        'flex items-center px-2 py-1.5 cursor-pointer select-none rounded-sm focus:bg-shade-6 data-[state=open]:bg-shade-6',
+        'flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 focus:bg-shade-6 data-[state=open]:bg-shade-6',
         props.class,
       )
     "
   >
     <slot />
-    <PhCaretRight class="size-3 ml-auto" />
+    <PhCaretRight class="ml-auto size-3" />
   </DropdownMenuSubTrigger>
 </template>
 

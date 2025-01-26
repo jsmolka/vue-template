@@ -3,12 +3,12 @@
     v-bind="forwardedProps"
     :class="
       cn(
-        'relative flex items-center pl-8 pr-2 py-1.5 cursor-pointer select-none rounded-sm focus:bg-shade-6 data-[disabled]:opacity-50 data-[disabled]:pointer-events-none',
+        'relative flex cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2 focus:bg-shade-6 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         props.class,
       )
     "
   >
-    <span class="absolute left-2 flex justify-center items-center size-4">
+    <span class="absolute left-2 flex size-4 items-center justify-center">
       <DropdownMenuItemIndicator>
         <PhCircle class="size-1.5" weight="fill" />
       </DropdownMenuItemIndicator>

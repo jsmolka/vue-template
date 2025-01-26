@@ -1,5 +1,5 @@
 <template>
-  <span :class="cn('ml-auto text-xs text-shade-3 tracking-widest', props.class)">
+  <span :class="cn('ml-auto text-xs tracking-widest text-shade-3', props.class)">
     <slot />
   </span>
 </template>

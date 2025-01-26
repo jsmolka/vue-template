@@ -1,5 +1,5 @@
 <template>
-  <Form class="max-w-sm mx-auto p-4">
+  <Form class="mx-auto max-w-sm p-4">
     <RouterLink class="self-center" to="/">
       <Logo class="size-8 text-shade-1" />
     </RouterLink>
@@ -267,14 +267,14 @@
     <FormItem>
       <h1>Tabs</h1>
       <Tabs :default-value="1">
-        <TabsList class="grid grid-flow-col auto-cols-fr">
+        <TabsList class="grid auto-cols-fr grid-flow-col">
           <TabsTrigger :value="1">Tab 1</TabsTrigger>
           <TabsTrigger :value="2">Tab 2</TabsTrigger>
           <TabsTrigger :value="3" disabled>Tab 3</TabsTrigger>
         </TabsList>
         <TabsContent
           v-for="value in [1, 2, 3]"
-          class="px-2 py-1.5 border rounded-sm"
+          class="rounded-sm border px-2 py-1.5"
           :value="value"
         >
           Content {{ value }}

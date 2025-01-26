@@ -1,7 +1,7 @@
 <template>
   <DropdownMenuSeparator
     v-bind="forwardedProps"
-    :class="cn('h-px -mx-1 my-1 bg-shade-6', props.class)"
+    :class="cn('-mx-1 my-1 h-px bg-shade-6', props.class)"
   />
 </template>
 
