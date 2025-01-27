@@ -2,17 +2,13 @@ import { useSettingsStore } from '@/stores/settings';
 import { defineStore } from 'pinia';
 
 export const useStores = defineStore('stores', () => {
-  const stores = {
-    settings: useSettingsStore(),
-  };
+  const stores = [useSettingsStore()];
 
   const hydrate = async () => {
-    for (const store of Object.values(stores)) {
-      try {
-        await store.hydrate();
-      } catch (error) {
-        console.error(error);
-      }
+    try {
+      await Promise.all(stores.map((store) => store.hydrate?.()));
+    } catch (error) {
+      console.error(error);
     }
   };
 
