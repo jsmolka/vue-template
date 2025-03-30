@@ -1,6 +1,6 @@
 import { isFunction, isInteger, isString, get as lodashGet } from 'lodash-es';
 
-export function compileGet(expr) {
+export function makeGet(expr) {
   if (expr == null) {
     return (value) => value;
   }
@@ -17,5 +17,5 @@ export function compileGet(expr) {
 }
 
 export function get(value, expr) {
-  return compileGet(expr)(value);
+  return makeGet(expr)(value);
 }
