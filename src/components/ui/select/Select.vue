@@ -1,7 +1,9 @@
 <template>
   <SelectRoot v-model="selectModelValue">
     <SelectTrigger :class="props.class">
-      <SelectValue :placeholder="placeholder" />
+      <SelectValue :placeholder="placeholder">
+        <slot name="value" />
+      </SelectValue>
     </SelectTrigger>
     <SelectContent>
       <SelectItem v-for="(item, index) in items" :value="index.toString()">

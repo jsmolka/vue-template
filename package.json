@@ -33,7 +33,7 @@
     "lodash-es": "^4.17.21",
     "notyf": "^3.10.0",
     "pinia": "^2.3.0",
-    "radix-vue": "^1.9.12",
+    "reka-ui": "^2.2.0",
     "tailwind-merge": "^2.6.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"

@@ -1,8 +1,6 @@
 <template>
   <SwitchRoot
     v-bind="forwardedProps"
-    :checked="modelValue"
-    @update:checked="emit('update:modelValue', $event)"
     :class="
       cn(
         'peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-brand-3 data-[state=unchecked]:bg-shade-6',
@@ -22,7 +20,7 @@
 
 <script setup>
 import { cn } from '@/utils/ui';
-import { SwitchRoot, SwitchThumb, useForwardPropsEmits } from 'radix-vue';
+import { SwitchRoot, SwitchThumb, useForwardPropsEmits } from 'reka-ui';
 import { computed } from 'vue';
 
 const props = defineProps({
