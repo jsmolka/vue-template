@@ -4,15 +4,11 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import { fileURLToPath, URL } from 'url';
 import { defineConfig } from 'vite';
 
-function relative(path) {
-  return fileURLToPath(new URL(path, import.meta.url));
-}
-
 export default defineConfig({
   plugins: [vue(), vueJsx(), tailwindcss()],
   resolve: {
     alias: {
-      '@': relative('./src'),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   build: {
