@@ -1,5 +1,5 @@
 <template>
-  <div :class="cn('relative w-full overflow-auto rounded-sm border', props.class)">
+  <div :class="cn('relative w-full overflow-auto rounded-xs border', props.class)">
     <slot />
   </div>
 </template>

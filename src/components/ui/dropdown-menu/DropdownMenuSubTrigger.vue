@@ -3,7 +3,7 @@
     v-bind="forwardedProps"
     :class="
       cn(
-        'flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 focus:bg-shade-6 data-[state=open]:bg-shade-6',
+        'focus:bg-shade-6 data-[state=open]:bg-shade-6 flex cursor-pointer items-center rounded-xs px-2 py-1.5 select-none',
         props.class,
       )
     "

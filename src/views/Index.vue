@@ -1,7 +1,7 @@
 <template>
   <Form class="mx-auto max-w-sm p-4">
     <RouterLink class="self-center" to="/">
-      <Logo class="size-8 text-shade-1" />
+      <Logo class="text-shade-1 size-8" />
     </RouterLink>
 
     <FormItem>
@@ -274,7 +274,7 @@
         </TabsList>
         <TabsContent
           v-for="value in [1, 2, 3]"
-          class="rounded-sm border px-2 py-1.5"
+          class="rounded-xs border px-2 py-1.5"
           :value="value"
         >
           Content {{ value }}
@@ -415,6 +415,8 @@ const commandOpen = ref(false);
 </script>
 
 <style scoped>
+@reference '@/main.css';
+
 h1 {
   @apply text-base;
   @apply text-shade-1;

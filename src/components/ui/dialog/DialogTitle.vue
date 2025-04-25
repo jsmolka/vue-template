@@ -1,7 +1,7 @@
 <template>
   <DialogTitle
     v-bind="forwardedProps"
-    :class="cn('text-base font-semibold leading-none tracking-tight text-shade-1', props.class)"
+    :class="cn('text-shade-1 text-base leading-none font-semibold tracking-tight', props.class)"
   >
     <slot />
   </DialogTitle>

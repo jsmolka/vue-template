@@ -2,7 +2,7 @@
   <textarea
     :class="
       cn(
-        'flex min-h-16 w-full rounded-sm border bg-shade-7 px-2 py-1.5 placeholder:text-shade-3 disabled:cursor-not-allowed disabled:opacity-50',
+        'bg-shade-7 placeholder:text-shade-3 flex min-h-16 w-full rounded-xs border px-2 py-1.5 disabled:cursor-not-allowed disabled:opacity-50',
         props.class,
       )
     "

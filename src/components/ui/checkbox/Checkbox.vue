@@ -3,7 +3,7 @@
     v-bind="forwardedProps"
     :class="
       cn(
-        'peer size-4 shrink-0 rounded-sm border border-brand-3 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-brand-3 data-[state=checked]:text-shade-8',
+        'peer border-brand-3 data-[state=checked]:bg-brand-3 data-[state=checked]:text-shade-8 size-4 shrink-0 rounded-xs border disabled:cursor-not-allowed disabled:opacity-50',
         props.class,
       )
     "

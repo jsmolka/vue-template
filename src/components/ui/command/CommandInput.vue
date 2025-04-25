@@ -1,12 +1,12 @@
 <template>
   <div class="flex items-center gap-2 border-b p-3">
-    <PhMagnifyingGlass class="size-4 shrink-0 text-shade-3" />
+    <PhMagnifyingGlass class="text-shade-3 size-4 shrink-0" />
     <ComboboxInput
       v-bind="{ ...forwardedProps, ...$attrs }"
       auto-focus
       :class="
         cn(
-          'overflow-ellipsis bg-transparent placeholder:text-shade-3 focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50',
+          'placeholder:text-shade-3 bg-transparent text-ellipsis focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50',
           props.class,
         )
       "

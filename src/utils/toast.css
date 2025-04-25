@@ -1,3 +1,5 @@
+@reference '@/main.css';
+
 @import 'notyf/notyf.min.css';
 
 .notyf {
@@ -17,9 +19,9 @@
 
 .notyf__toast {
   @apply p-0;
-  @apply rounded-sm;
+  @apply rounded-xs;
   @apply cursor-pointer;
-  @apply shadow;
+  @apply shadow-sm;
 }
 
 .notyf__toast--lower {
