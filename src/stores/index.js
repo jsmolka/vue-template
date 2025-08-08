@@ -4,6 +4,20 @@ import { defineStore } from 'pinia';
 export const useStores = defineStore('stores', () => {
   const stores = [useSettingsStore()];
 
+  const toJson = () => {
+    const data = {};
+    for (const store of stores) {
+      data[store.$id] = store.toJson();
+    }
+    return data;
+  };
+
+  const fromJson = (data) => {
+    for (const store of stores) {
+      store.fromJson(data[store.$id]);
+    }
+  };
+
   const hydrate = async () => {
     try {
       await Promise.all(stores.map((store) => store.hydrate?.()));
@@ -12,5 +26,5 @@ export const useStores = defineStore('stores', () => {
     }
   };
 
-  return { hydrate };
+  return { toJson, fromJson, hydrate };
 });
