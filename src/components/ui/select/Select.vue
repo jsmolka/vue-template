@@ -1,16 +1,14 @@
 <template>
-  <SelectRoot v-model="selectModelValue">
-    <SelectTrigger :class="props.class">
+  <SelectRoot v-model="selectModelValue" v-bind="$attrs">
+    <SelectTrigger :class="props.class" :style="props.style">
       <SelectValue :placeholder="placeholder">
-        <slot name="value" />
+        <slot name="value" :value="modelValue" :index="modelIndex" />
       </SelectValue>
     </SelectTrigger>
-    <SelectContent>
+    <SelectContent :key="itemsKey">
       <SelectItem v-for="(item, index) in items" :value="index.toString()">
         <slot name="item" :item="item" :index="index">
-          <SelectItemText>
-            {{ item }}
-          </SelectItemText>
+          <SelectItemText>{{ getDisplay(item) }}</SelectItemText>
         </slot>
       </SelectItem>
     </SelectContent>
@@ -25,17 +23,23 @@ import {
   SelectRoot,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { makeGet } from '@/utils/get';
-import { computed } from 'vue';
+} from '@/components/ui/select/index.js';
+import { makeGet } from '@/utils/get.js';
+import { computed, ref, watch } from 'vue';
 
 const modelValue = defineModel({ required: false });
 
 const props = defineProps({
   class: { required: false },
+  displayExpr: { required: false },
   items: { type: Array, default: [] },
   keyExpr: { required: false },
   placeholder: { type: String, required: false },
+  style: { required: false },
+});
+
+const getDisplay = computed(() => {
+  return makeGet(props.displayExpr);
 });
 
 const getKey = computed(() => {
@@ -60,4 +64,12 @@ const selectModelValue = computed({
     }
   },
 });
+
+// Prevent problems with changing items
+const itemsKey = ref(0);
+watch(
+  () => props.items,
+  () => itemsKey.value++,
+  { deep: true },
+);
 </script>
