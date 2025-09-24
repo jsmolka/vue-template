@@ -85,7 +85,9 @@ const inputmode = computed(() => {
 });
 
 const value = computed(() => {
-  return modelValue.value != null ? format(modelValue.value.toLocaleString()) : null;
+  return modelValue.value != null
+    ? format(modelValue.value.toLocaleString(undefined, { useGrouping: false }))
+    : null;
 });
 
 let selectionStart = null;
