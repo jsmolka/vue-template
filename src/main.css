@@ -18,6 +18,7 @@
 }
 
 @theme {
+  --font-sans: Inter, Roboto, ui-sans-serif, sans-serif;
   --color-shade-1: #ebedf2; /* hsv(220,  3%, 95%) */
   --color-shade-2: #dfe1e6; /* hsv(220,  3%, 90%) */
   --color-shade-3: #5b6780; /* hsv(220, 29%, 50%) */
@@ -33,7 +34,6 @@
   --color-orange: #d08770;
   --color-yellow: #ebcb8b;
   --color-green: #a3be8c;
-  --font-sans: Inter, Roboto, ui-sans-serif, sans-serif;
 }
 
 @layer base {
