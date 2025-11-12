@@ -1,12 +1,12 @@
 import packageJson from '@/../package.json';
-import { createStore, get as kvGet, set as kvSet } from 'idb-keyval';
+import { get as _get, set as _set, createStore } from 'idb-keyval';
 
 const store = createStore(packageJson.name, 'store');
 
 export async function get(key) {
-  return kvGet(key, store);
+  return _get(key, store);
 }
 
 export async function set(key, value) {
-  return kvSet(key, value, store);
+  return _set(key, value, store);
 }
