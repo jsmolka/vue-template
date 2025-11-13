@@ -12,9 +12,18 @@ export const useSettingsStore = defineStore('settings', () => {
     return { version: 1, data: serialize(settings.value) };
   };
 
+  const migrate = (data) => {
+    const { version, data: settings } = data;
+    switch (version) {
+      case 1:
+        break;
+    }
+    return settings;
+  };
+
   const fromJson = (data) => {
     if (data != null && data.version != null) {
-      settings.value = deserialize(Settings, convert(data));
+      settings.value = deserialize(Settings, migrate(data));
     }
   };
 
@@ -36,12 +45,3 @@ export const useSettingsStore = defineStore('settings', () => {
 
   return { settings, toJson, fromJson, persist, hydrate };
 });
-
-function convert(data) {
-  const { version, data: settings } = data;
-  switch (version) {
-    case 1:
-      break;
-  }
-  return settings;
-}
