@@ -16,7 +16,6 @@ export const useSettingsStore = defineStore('settings', () => {
     const { version, data: settings } = data;
     switch (version) {
       case 1:
-        break;
     }
     return settings;
   };
