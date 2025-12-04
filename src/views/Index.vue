@@ -6,13 +6,13 @@
 
     <FormItem>
       <h1>Button</h1>
-      <FormItem class="grid grid-cols-2">
+      <FormGrid class="grid-cols-2">
         <template v-for="variant in ['default', 'secondary', 'outline', 'ghost']">
           <Button v-for="disabled in [false, true]" :variant="variant" :disabled="disabled">
             Button
           </Button>
         </template>
-        <FormItem v-for="disabled in [false, true]" class="grid grid-flow-col">
+        <FormGrid v-for="disabled in [false, true]">
           <Button
             v-for="variant in ['default', 'secondary', 'outline', 'ghost']"
             :variant="variant"
@@ -21,18 +21,18 @@
           >
             <Logo class="size-4" />
           </Button>
-        </FormItem>
-      </FormItem>
+        </FormGrid>
+      </FormGrid>
     </FormItem>
 
     <FormItem>
       <h1>Checkbox</h1>
-      <FormItem class="grid grid-flow-col">
+      <FormGrid>
         <Checkbox :model-value="true" />
         <Checkbox :model-value="true" disabled />
         <Checkbox />
         <Checkbox disabled />
-      </FormItem>
+      </FormGrid>
     </FormItem>
 
     <FormItem>
@@ -69,7 +69,7 @@
 
     <FormItem>
       <h1>Dialog</h1>
-      <FormItem class="grid grid-flow-col">
+      <FormGrid>
         <Dialog>
           <DialogTrigger as-child>
             <Button variant="secondary">Open</Button>
@@ -106,7 +106,7 @@
         >
           Open
         </Button>
-      </FormItem>
+      </FormGrid>
     </FormItem>
 
     <FormItem>
@@ -165,7 +165,7 @@
 
     <FormItem>
       <h1>Input</h1>
-      <FormItem class="grid grid-cols-2">
+      <FormGrid class="grid-cols-2">
         <Input placeholder="Input" />
         <Input placeholder="Input" disabled />
         <InputNumber
@@ -177,7 +177,7 @@
           suffix=" unit"
           :disabled="disabled"
         />
-      </FormItem>
+      </FormGrid>
     </FormItem>
 
     <FormItem>
@@ -198,7 +198,7 @@
 
     <FormItem>
       <h1>Select</h1>
-      <FormItem class="grid grid-cols-2">
+      <FormGrid class="grid-cols-2">
         <Select
           v-for="disabled in [false, true]"
           :items="[1, 2, 3]"
@@ -233,17 +233,17 @@
             </template>
           </SelectContent>
         </SelectRoot>
-      </FormItem>
+      </FormGrid>
     </FormItem>
 
     <FormItem>
       <h1>Switch</h1>
-      <FormItem class="grid grid-flow-col">
+      <FormGrid>
         <Switch :model-value="true" />
         <Switch :model-value="true" disabled />
         <Switch />
         <Switch disabled />
-      </FormItem>
+      </FormGrid>
     </FormItem>
 
     <FormItem>
@@ -284,25 +284,25 @@
 
     <FormItem>
       <h1>Textarea</h1>
-      <FormItem class="grid grid-cols-2">
+      <FormGrid>
         <Textarea placeholder="Textarea" />
         <Textarea placeholder="Textarea" disabled />
-      </FormItem>
+      </FormGrid>
     </FormItem>
 
     <FormItem>
       <h1>Toast</h1>
-      <FormItem class="grid grid-cols-4">
+      <FormGrid>
         <Button variant="secondary" @click="toast('Message', { type: 'info' })">Info</Button>
         <Button variant="secondary" @click="toast('Message', { type: 'success' })">Success</Button>
         <Button variant="secondary" @click="toast('Message', { type: 'warning' })">Warning</Button>
         <Button variant="secondary" @click="toast('Message', { type: 'error' })">Error</Button>
-      </FormItem>
+      </FormGrid>
     </FormItem>
 
     <FormItem>
       <h1>Toggle</h1>
-      <FormItem class="grid grid-cols-4">
+      <FormGrid class="grid-cols-4">
         <template v-for="value in [true, false]">
           <template v-for="disabled in [false, true]">
             <FormItem class="flex-col">
@@ -317,7 +317,7 @@
             </FormItem>
           </template>
         </template>
-      </FormItem>
+      </FormGrid>
     </FormItem>
 
     <FormItem>
@@ -377,7 +377,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Form, FormItem } from '@/components/ui/form';
+import { Form, FormGrid, FormItem } from '@/components/ui/form';
 import { Input, InputNumber } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
