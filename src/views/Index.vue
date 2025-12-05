@@ -72,14 +72,17 @@
       <FormGrid>
         <Dialog>
           <DialogTrigger as-child>
-            <Button variant="secondary">Open</Button>
+            <Button variant="secondary">Template</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Title</DialogTitle>
               <DialogDescription>Description</DialogDescription>
             </DialogHeader>
-            <p>Content</p>
+            <div class="flex items-center gap-2">
+              <Logo class="size-4" />
+              Content
+            </div>
             <DialogFooter>
               <DialogClose as-child>
                 <Button variant="default">Button</Button>
@@ -90,22 +93,7 @@
             </DialogFooter>
           </DialogContent>
         </Dialog>
-        <Button
-          variant="secondary"
-          @click="
-            dialog({
-              title: 'Title',
-              description: 'Description',
-              content: 'Content',
-              buttons: [
-                { text: 'Button', variant: 'default' },
-                { text: 'Button', variant: 'secondary' },
-              ],
-            })
-          "
-        >
-          Open
-        </Button>
+        <Button variant="secondary" @click="openProgrammaticDialog">Programmatic</Button>
       </FormGrid>
     </FormItem>
 
@@ -336,7 +324,7 @@
   </Form>
 </template>
 
-<script setup>
+<script setup lang="jsx">
 import Logo from '@/components/Logo.vue';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -351,6 +339,7 @@ import {
   CommandShortcut,
 } from '@/components/ui/command';
 import {
+  dialog,
   Dialog,
   DialogClose,
   DialogContent,
@@ -407,11 +396,28 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { Toggle } from '@/components/ui/toggle';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { dialog } from '@/utils/dialog';
 import { toast } from '@/utils/toast';
 import { ref } from 'vue';
 
 const commandOpen = ref(false);
+
+const openProgrammaticDialog = async () => {
+  const value = await dialog({
+    title: 'Title',
+    description: 'Description',
+    content: (
+      <div class="flex items-center gap-2">
+        <Logo class="size-4" />
+        Content
+      </div>
+    ),
+    buttons: [
+      { text: 'Button', variant: 'default' },
+      { text: 'Button', variant: 'secondary' },
+    ],
+  });
+  toast(`Closed with value: ${value}`);
+};
 </script>
 
 <style scoped>
