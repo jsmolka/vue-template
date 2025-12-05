@@ -11,7 +11,6 @@ export default defineConfig({
     vueJsx(),
     tailwindcss(),
     VitePWA({
-      registerType: 'autoUpdate',
       manifest: {
         name: 'vue-template',
         description: 'vue-template-description',
