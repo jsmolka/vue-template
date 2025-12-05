@@ -72,7 +72,7 @@
       <FormGrid>
         <Dialog>
           <DialogTrigger as-child>
-            <Button variant="secondary">Template</Button>
+            <Button variant="secondary">Open</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -93,7 +93,7 @@
             </DialogFooter>
           </DialogContent>
         </Dialog>
-        <Button variant="secondary" @click="openProgrammaticDialog">Programmatic</Button>
+        <Button variant="secondary" @click="openProgrammaticDialog">Open</Button>
       </FormGrid>
     </FormItem>
 
@@ -402,7 +402,7 @@ import { ref } from 'vue';
 const commandOpen = ref(false);
 
 const openProgrammaticDialog = async () => {
-  const value = await dialog({
+  await dialog({
     title: 'Title',
     description: 'Description',
     content: (
@@ -416,7 +416,6 @@ const openProgrammaticDialog = async () => {
       { text: 'Button', variant: 'secondary' },
     ],
   });
-  toast(`Closed with value: ${value}`);
 };
 </script>
 
