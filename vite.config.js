@@ -11,26 +11,7 @@ export default defineConfig({
     vueJsx(),
     tailwindcss(),
     VitePWA({
-      manifest: {
-        name: 'vue-template',
-        description: 'vue-template-description',
-        theme_color: '#242933',
-        background_color: '#242933',
-        icons: [
-          {
-            src: 'android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-            purpose: 'any maskable',
-          },
-          {
-            src: 'android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable',
-          },
-        ],
-      },
+      manifest: false,
     }),
   ],
   resolve: {
