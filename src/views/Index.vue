@@ -4,8 +4,8 @@
       <Logo class="text-shade-1 size-8" />
     </RouterLink>
 
-    <FormItem>
-      <h1>Button</h1>
+    <FormGroup>
+      <FormGroupHeading>Button</FormGroupHeading>
       <FormGrid class="grid-cols-2">
         <template v-for="variant in ['default', 'secondary', 'outline', 'ghost']">
           <Button v-for="disabled in [false, true]" :variant="variant" :disabled="disabled">
@@ -23,20 +23,20 @@
           </Button>
         </FormGrid>
       </FormGrid>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Checkbox</h1>
+    <FormGroup>
+      <FormGroupHeading>Checkbox</FormGroupHeading>
       <FormGrid>
         <Checkbox :model-value="true" />
         <Checkbox :model-value="true" disabled />
         <Checkbox />
         <Checkbox disabled />
       </FormGrid>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Command</h1>
+    <FormGroup>
+      <FormGroupHeading>Command</FormGroupHeading>
       <Button variant="secondary" @click="commandOpen = true">Open</Button>
       <CommandDialog v-model:open="commandOpen">
         <CommandInput placeholder="Command input" />
@@ -65,10 +65,10 @@
           </CommandGroup>
         </CommandList>
       </CommandDialog>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Dialog</h1>
+    <FormGroup>
+      <FormGroupHeading>Dialog</FormGroupHeading>
       <FormGrid>
         <Dialog>
           <DialogTrigger as-child>
@@ -95,10 +95,10 @@
         </Dialog>
         <Button variant="secondary" @click="openProgrammaticDialog">Open</Button>
       </FormGrid>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Dropdown Menu</h1>
+    <FormGroup>
+      <FormGroupHeading>Dropdown Menu</FormGroupHeading>
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
           <Button variant="secondary">Open</Button>
@@ -149,10 +149,10 @@
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Input</h1>
+    <FormGroup>
+      <FormGroupHeading>Input</FormGroupHeading>
       <FormGrid class="grid-cols-2">
         <Input placeholder="Input" />
         <Input placeholder="Input" disabled />
@@ -166,26 +166,26 @@
           :disabled="disabled"
         />
       </FormGrid>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Label</h1>
+    <FormGroup>
+      <FormGroupHeading>Label</FormGroupHeading>
       <Label>Label</Label>
       <Input placeholder="Input" />
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Popover</h1>
+    <FormGroup>
+      <FormGroupHeading>Popover</FormGroupHeading>
       <Popover>
         <PopoverTrigger as-child>
           <Button variant="secondary">Open</Button>
         </PopoverTrigger>
         <PopoverContent>Content</PopoverContent>
       </Popover>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Select</h1>
+    <FormGroup>
+      <FormGroupHeading>Select</FormGroupHeading>
       <FormGrid class="grid-cols-2">
         <Select
           v-for="disabled in [false, true]"
@@ -222,20 +222,20 @@
           </SelectContent>
         </SelectRoot>
       </FormGrid>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Switch</h1>
+    <FormGroup>
+      <FormGroupHeading>Switch</FormGroupHeading>
       <FormGrid>
         <Switch :model-value="true" />
         <Switch :model-value="true" disabled />
         <Switch />
         <Switch disabled />
       </FormGrid>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Table</h1>
+    <FormGroup>
+      <FormGroupHeading>Table</FormGroupHeading>
       <TableWrapper>
         <Table>
           <TableHeader>
@@ -250,10 +250,10 @@
           </TableBody>
         </Table>
       </TableWrapper>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Tabs</h1>
+    <FormGroup>
+      <FormGroupHeading>Tabs</FormGroupHeading>
       <Tabs :default-value="1">
         <TabsList class="grid auto-cols-fr grid-flow-col">
           <TabsTrigger :value="1">Tab 1</TabsTrigger>
@@ -268,28 +268,28 @@
           Content {{ value }}
         </TabsContent>
       </Tabs>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Textarea</h1>
+    <FormGroup>
+      <FormGroupHeading>Textarea</FormGroupHeading>
       <FormGrid>
         <Textarea placeholder="Textarea" />
         <Textarea placeholder="Textarea" disabled />
       </FormGrid>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Toast</h1>
+    <FormGroup>
+      <FormGroupHeading>Toast</FormGroupHeading>
       <FormGrid>
         <Button variant="secondary" @click="toast('Message', { type: 'info' })">Info</Button>
         <Button variant="secondary" @click="toast('Message', { type: 'success' })">Success</Button>
         <Button variant="secondary" @click="toast('Message', { type: 'warning' })">Warning</Button>
         <Button variant="secondary" @click="toast('Message', { type: 'error' })">Error</Button>
       </FormGrid>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Toggle</h1>
+    <FormGroup>
+      <FormGroupHeading>Toggle</FormGroupHeading>
       <FormGrid class="grid-cols-4">
         <template v-for="value in [true, false]">
           <template v-for="disabled in [false, true]">
@@ -306,10 +306,10 @@
           </template>
         </template>
       </FormGrid>
-    </FormItem>
+    </FormGroup>
 
-    <FormItem>
-      <h1>Tooltip</h1>
+    <FormGroup>
+      <FormGroupHeading>Tooltip</FormGroupHeading>
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger as-child>
@@ -320,7 +320,7 @@
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-    </FormItem>
+    </FormGroup>
   </Form>
 </template>
 
@@ -366,7 +366,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Form, FormGrid, FormItem } from '@/components/ui/form';
+import { Form, FormGrid, FormItem, FormGroup, FormGroupHeading } from '@/components/ui/form';
 import { Input, InputNumber } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
@@ -418,13 +418,3 @@ const openProgrammaticDialog = async () => {
   });
 };
 </script>
-
-<style scoped>
-@reference '@/main.css';
-
-h1 {
-  @apply text-base;
-  @apply text-shade-1;
-  @apply font-semibold;
-}
-</style>
