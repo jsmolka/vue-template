@@ -225,6 +225,23 @@
     </FormGroup>
 
     <FormGroup>
+      <FormGroupHeading>Spinner</FormGroupHeading>
+      <FormGrid class="grid-cols-2">
+        <template v-for="variant in ['default', 'secondary', 'ghost']">
+          <Button
+            v-for="disabled in [false, true]"
+            :variant="variant"
+            :disabled="disabled"
+            class="gap-2"
+          >
+            <Spinner :variant="variant" />
+            Button
+          </Button>
+        </template>
+      </FormGrid>
+    </FormGroup>
+
+    <FormGroup>
       <FormGroupHeading>Switch</FormGroupHeading>
       <FormGrid>
         <Switch :model-value="true" />
@@ -349,6 +366,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { Spinner } from '@/components/ui/spinner';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
