@@ -11,6 +11,7 @@
     @input="
       $event.target.value = format($event.target.value);
       clampCursor($event);
+      change($event);
     "
     @change="change"
     @focusin="select"
@@ -30,6 +31,11 @@ const modelValue = defineModel({ type: Number, required: false });
 
 const props = defineProps({
   class: { required: false },
+  event: {
+    type: String,
+    default: 'input',
+    validator: (value) => ['input', 'change'].includes(value),
+  },
   max: { type: Number, default: Number.MAX_SAFE_INTEGER },
   min: { type: Number, default: Number.MIN_SAFE_INTEGER },
   precision: { type: Number, default: 0 },
@@ -185,6 +191,10 @@ const clampCursor = (event) => {
 const forceUpdate = useForceUpdate();
 
 const change = async (event) => {
+  if (event.type !== props.event) {
+    return;
+  }
+
   const value = clamp(
     parseFloat(unformat(event.target.value).replaceAll(decimalSeparator, '.')) || 0,
     props.min,
