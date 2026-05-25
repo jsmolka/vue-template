@@ -67,8 +67,9 @@
   }
 
   * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-shade-5) transparent;
+    @apply scrollbar-thin;
+    @apply scrollbar-thumb-shade-5;
+    @apply scrollbar-track-transparent;
 
     &:focus-visible {
       @apply outline-hidden;
