@@ -1,5 +1,11 @@
 {
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "vue"],
+  "eslint.useFlatConfig": true,
+  "eslint.format.enable": false,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
