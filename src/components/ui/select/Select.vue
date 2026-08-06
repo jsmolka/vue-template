@@ -8,7 +8,7 @@
     </SelectTrigger>
     <SelectContent>
       <SelectItem v-for="(item, index) in items" :value="index.toString()">
-        <slot v-if="$slots.default" :item="modelValue" :index="index" />
+        <slot v-if="$slots.default" :item="item" :index="index" />
         <slot name="item" :item="item" :index="index">
           <SelectItemText>{{ getDisplay(item) }}</SelectItemText>
         </slot>
