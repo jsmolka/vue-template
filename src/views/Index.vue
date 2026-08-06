@@ -366,7 +366,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { Spinner } from '@/components/ui/spinner';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -400,6 +399,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Spinner } from '@/components/ui/spinner';
 import { Switch } from '@/components/ui/switch';
 import {
   Table,
