@@ -37,10 +37,6 @@ const select = async (event) => {
 const forceUpdate = useForceUpdate();
 
 const input = async (event) => {
-  if (event.type !== props.event) {
-    return;
-  }
-
   let value = event.target.value;
   if (value === '' && props.nullable) {
     value = null;
