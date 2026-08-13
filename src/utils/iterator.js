@@ -21,3 +21,26 @@ export function reversed(array) {
     },
   };
 }
+
+export function pairs(array) {
+  return {
+    *entries() {
+      if (array.length === 0) {
+        return;
+      }
+
+      for (let i = 0, j = 1; j < array.length; i++, j++) {
+        yield [
+          [i, j],
+          [array[i], array[j]],
+        ];
+      }
+    },
+
+    *[Symbol.iterator]() {
+      for (const [_, value] of this.entries()) {
+        yield value;
+      }
+    },
+  };
+}
