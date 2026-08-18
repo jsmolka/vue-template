@@ -1,3 +1,4 @@
+import typescriptParser from '@typescript-eslint/parser';
 import perfectionist from 'eslint-plugin-perfectionist';
 import unusedImports from 'eslint-plugin-unused-imports';
 import vueParser from 'vue-eslint-parser';
@@ -26,6 +27,7 @@ export default [
       perfectionist,
     },
     languageOptions: {
+      parser: typescriptParser,
       parserOptions: {
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
@@ -42,6 +44,7 @@ export default [
     languageOptions: {
       parser: vueParser,
       parserOptions: {
+        parser: typescriptParser,
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
       },
