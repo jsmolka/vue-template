@@ -17,6 +17,7 @@ const rules = {
       sortSideEffects: true,
     },
   ],
+  'perfectionist/sort-named-imports': 'error',
 };
 
 export default [
