@@ -15,6 +15,10 @@ export function lerp(x, y, ratio) {
   return x + ratio * (y - x);
 }
 
+export function mapRange(value, inMin, inMax, outMin, outMax) {
+  return lerp(outMin, outMax, clamp((value - inMin) / (inMax - inMin), 0, 1));
+}
+
 // Based on https://github.com/josdejong/mathjs/blob/v12.4.3/src/utils/number.js#L626
 export function equals(x, y, epsilon = null) {
   if (x === y) {
