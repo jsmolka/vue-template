@@ -26,6 +26,13 @@ class Color {
   get rgb() {
     return `rgb(${this.r}, ${this.g}, ${this.b})`;
   }
+
+  [Symbol.toPrimitive](hint) {
+    if (hint === 'number') {
+      return this.int;
+    }
+    return this.hex;
+  }
 }
 
 export const colors = Object.freeze({
